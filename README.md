@@ -17,8 +17,9 @@ An interactive Instagram social media clone that allows a user to post photos, s
 </ul>
 <br><br>
 <h1>WIREFRAMES</h1>
-<img src="READMEassets/Screenshot 2020-12-16 153936.jpg" alt="Website Wireframe">
-<img src="READMEassets/Screenshot 2020-12-16 154006.jpg" alt="Website Wireframe">
+<img src="READMEassets/Wireframe1.png" alt="Website Wireframe">
+<img src="READMEassets/Screen Shot 2020-12-16 at 6.46.34 PM.png" alt="Website Wireframe">
+<img src="READMEassets/Wireframe 3.png" alt="Website Wireframe">
 <h1>ERD<h1>
 <img src="READMEassets/ERDWireframe.png" alt="Website Wireframe">
 <h1>TECH USED - (expected)</h1> 
