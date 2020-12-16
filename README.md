@@ -19,7 +19,7 @@ An interactive Instagram social media clone that allows a user to post photos, s
 <h1>WIREFRAMES</h1>
 <img src="READMEassets/Wireframe2.png" alt="Website Wireframe">
 <h1>ERD<h1>
-<img src="READMEassets/Wireframe2.png" alt="Website Wireframe">
+<img src="READMEassets/ERDWireframe.png" alt="Website Wireframe">
 <h1>TECH USED - (expected)</h1> 
 <br>
 1) HTML 5<br>
