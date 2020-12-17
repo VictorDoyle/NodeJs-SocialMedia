@@ -11,6 +11,7 @@ mongoose.connect(mongoURL, {
 })
 
 mongoose.connection.on("connected", function(){
+<<<<<<< HEAD
     console.log("Database Connected");
   });
   
@@ -20,6 +21,17 @@ mongoose.connection.on("connected", function(){
   
   mongoose.connection.on("error", function(error){
     console.log("MongoDB error", error);
+=======
+    console.log("MongoDB is now Connected");
+  });
+  
+  mongoose.connection.on("disconnected", function(){
+    console.log("MongoDB is now disconnected");
+  });
+  
+  mongoose.connection.on("error", function(error){
+    console.log("There is a Database error", error);
+>>>>>>> origin/victorversion2
   });
   module.exports = {
       User: require("./User"),

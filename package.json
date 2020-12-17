@@ -1,13 +1,25 @@
 {
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "filestack-js": "^3.20.0",
+=======
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.1",
+>>>>>>> origin/victorversion2
     "method-override": "^3.0.0",
     "mongoose": "^5.11.8"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   },
   "name": "instaproject",
   "version": "1.0.0",

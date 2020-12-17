@@ -24,10 +24,11 @@ router.get("/", function(request, response){
     db.User.find({}, function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
+
         return response.render("users/index", context);
     });
 });
-
+/* FIXME: Need to fix index route. all users index is showing on /users/ */
 
 /* ======== NEW PAGE ======== */
 
@@ -38,15 +39,15 @@ router.get("/new", function(request,response){
 
 /* ======== SHOW PAGE ======== */
 router.get("/:id", function(request, response) {
-    db.User.findbyId(request.params.id, function (error, foundUser){
+    db.User.findById(request.params.id, function (error, foundUser){
         if(error)  return response.send(error);
         const context = {users: foundUser};
         return response.render("users/show", context);
-        
     });
 });
 
 /* ======== CREATE PAGE ======== */
+/* FIXME: delete the Create Page and use Auth Register for Create Route instead */
 
 router.post("/", function(request,response){
     db.User.create(request.body, function(error, createdUser){
@@ -61,7 +62,7 @@ router.post("/", function(request,response){
 /* ======== EDIT PAGE ======== */
 
 router.get("/:id/edit", function(request,response){
-    db.User.findbyId(request.params.id, function(error, foundUser){
+    db.User.findById(request.params.id, function(error, foundUser){
         if(error) {
             return response.render(error);
         } else {

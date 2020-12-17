@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+  </head>
+
+
+  <body>
+  <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item active" href="/">
+      Home
+    </a>
+    <!-- TODO: Messages Update in Version 1.0 -->
+    <a class="item" href="/comments/index">
+      Comments
+    </a>
+
+    <a class="item" href="/users/index">
+      Friends
+    </a>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+        <a class="ui item">
+          <i class="plus circle icon" href="/posts/new"></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/show">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+      
+    </div>
+  </div>
+
+  <!-- SECTION: SHOW ALL USERS BELOW TAGGED BY /friends ID -->
+  <main>
+  <h2> Friends List</h2>
+    <% if(!users.length) { %>
+      <p>There are no users in your friends list yet.</p>
+    <% } %>
+
+    <ul>
+      <% users.forEach(user => { %>
+      <li>
+        <a href="/users/<%= user._id %>"> <%= user.userName %> </a>
+      </li>
+      <% }) %>
+    </ul>
+
+    
+  </main>
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+  </body>
+</html>

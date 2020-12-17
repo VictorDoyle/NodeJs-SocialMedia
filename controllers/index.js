@@ -3,4 +3,6 @@ module.exports = {
     /* posts: require("./posts"), //Uncomment after testing
     images: require("./images"),
     comments: require("./comments") */
+    auth: require("./auth"),
+    
   }

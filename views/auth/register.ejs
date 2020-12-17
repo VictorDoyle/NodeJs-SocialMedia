@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <title>Register</title>
+</head>
+<body>
+
+    <!-- Left side nav bar -->
+    <div class="ui secondary pointing menu">
+      
+        <div class="left menu">
+            <h1>Social Media App</h1>
+        <a class="ui item" href="/login">
+            <i class="plus square icon"></i>
+            Login To Your Account
+          </a>
+          </div>
+          div class="right menu">
+        <a class="ui item" href="/register">
+            <i class="plus square icon"></i>
+            Create Account
+          </a>
+      </div>
+    </div>
+
+      
+    
+
+
+
+
+
+
+
+    <h1> Register for An Account</h1>
+
+    <form action="/register" method="POST">
+        <p>
+            <input type="text" name="firstName" placeholder="First Name" required>
+        </p>
+        <p>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+        </p>
+        <p>
+    <input type="text" name="userName" placeholder="username" required minlength="5">
+        </p>
+    <p>
+    <input type="email" name="email" placeholder="email" required>
+    </p>
+    <p>
+    <input type="password" name="password" placeholder="password" required minlength="5">
+    </p>
+    <p>
+        <input type="text" name="description" placeholder="Your Profile Description" required minlength="1">
+    </p>
+    <p>
+    <input type="submit" value="Register">
+    </p>
+</form>
+
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+</body>
+</html>
