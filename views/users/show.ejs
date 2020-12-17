@@ -38,10 +38,13 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
 
-  <h1> User Profiles</h1>
+  
 
+<section>
+  <h2><%= user.userName %>'s Profile</h2>
+  <a href="/users/<%= user._id %>/edit">Edit</a>
   <ul>
-    <li>Username: <%= user.userName %></li>
+    <li>Name: <%= user.userName %></li>
   </ul>
 </section>
 <form action="/users/<%= user._id %>?_method=DELETE" method="POST">

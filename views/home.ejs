@@ -57,33 +57,39 @@
 <!-- main page content -->
 <!-- SECTION: LOGIN -->
 <!-- user posts will show inside these divs -->
+
 <div class="ui four column centered grid">
   <div class="ui placeholder segment">
     <div class="ui two column very relaxed stackable grid">
       <div class="column">
         <div class="ui form">
           <div class="field">
-            <label>Username</label>
+            <form action="/login" method="POST">
+            <label>Email</label>
             <div class="ui left icon input">
-              <input type="text" placeholder="Username">
+              <input type="email" name="email" placeholder="Email" required>
               <i class="user icon"></i>
             </div>
           </div>
           <div class="field">
             <label>Password</label>
             <div class="ui left icon input">
-              <input type="password">
-              
+              <input type="password" required>
+
               <i class="lock icon"></i>
             </div>
           </div>
-          <div class="ui blue submit button">Login</div>
+          <input type="submit" value="login" class="ui blue submit button"></input>
         </div>
       </div>
+    </form>
+      <!-- Sign up  -->
       <div class="middle aligned column">
         <div class="ui big button">
+          <a href="/register">
           <i class="signup icon"></i>
           Sign Up
+        </a>
         </div>
       </div>
     </div>

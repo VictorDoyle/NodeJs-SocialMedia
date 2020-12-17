@@ -46,7 +46,7 @@
     <ul>
       <% users.forEach(user => { %>
       <li>
-        <a href="/users/<%= user._id %>"> <%= user.userName %> </a>
+        <a href="/users/<%= user._id %>"> <%= user.userName %> - <%= user.firstName %></a>
       </li>
       <% }) %>
     </ul>
