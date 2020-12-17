@@ -7,6 +7,34 @@
     <title>Register</title>
 </head>
 <body>
+
+    <!-- Left side nav bar -->
+    <div class="ui secondary pointing menu">
+      
+        <div class="left menu">
+            <h1>Social Media App</h1>
+        <a class="ui item" href="/login">
+            <i class="plus square icon"></i>
+            Login To Your Account
+          </a>
+          </div>
+          div class="right menu">
+        <a class="ui item" href="/register">
+            <i class="plus square icon"></i>
+            Create Account
+          </a>
+      </div>
+    </div>
+
+      
+    
+
+
+
+
+
+
+
     <h1> Register for An Account</h1>
 
     <form action="/register" method="POST">
@@ -22,14 +50,17 @@
     <p>
     <input type="email" name="email" placeholder="email" required>
     </p>
-    <input type="password" name="password" placeholder="password" required minlength="5">
     <p>
-    <input type="submit" value="Register">
+    <input type="password" name="password" placeholder="password" required minlength="5">
     </p>
     <p>
         <input type="text" name="description" placeholder="Your Profile Description" required minlength="1">
     </p>
-    </form>
+    <p>
+    <input type="submit" value="Register">
+    </p>
+</form>
+
 
 
 
