@@ -6,9 +6,10 @@ const UsersSchema = new mongoose.Schema(
         lastName: { type: String, required: [true, "You must provide a last name"] },
         userName: { type: String, required: [true, "You must provide a username"] },
         description: { type: String, required: [true, "You must provide a profile bio"] },
-        posts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
+        posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
         picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
-        savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
+        /* savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" }, */ 
+        // uncomment savedPosts after mvp
         //Put in accessibility under user as we decide specifics.
     }
 )

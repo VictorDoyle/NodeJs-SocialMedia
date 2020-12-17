@@ -28,7 +28,7 @@ router.get("/", function(request, response){
         return response.render("users/index", context);
     });
 });
-
+/* FIXME: Need to fix index route. all users index is showing on /users/ */
 
 /* ======== NEW PAGE ======== */
 

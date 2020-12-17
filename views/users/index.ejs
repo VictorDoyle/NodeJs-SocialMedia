@@ -37,10 +37,22 @@
   </div>
 
   <!-- SECTION: SHOW ALL USERS BELOW TAGGED BY /friends ID -->
+  <main>
+  <h2> Friends List</h2>
+    <% if(!users.length) { %>
+      <p>There are no users in your friends list yet.</p>
+    <% } %>
 
-  <h1> Friends List</h1>
+    <ul>
+      <% users.forEach(user => { %>
+      <li>
+        <a href="/users/<%= user._id %>"> <%= user.userName %> </a>
+      </li>
+      <% }) %>
+    </ul>
 
-
+    
+  </main>
 
 
 

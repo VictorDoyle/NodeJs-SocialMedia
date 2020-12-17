@@ -38,10 +38,15 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
 
-  <h1> Username</h1>
+  <h1> User Profiles</h1>
 
-
-
+  <ul>
+    <li>Username: <%= user.userName %></li>
+  </ul>
+</section>
+<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+  <input type="submit" value="Delete" />
+</form>
 
 
 
