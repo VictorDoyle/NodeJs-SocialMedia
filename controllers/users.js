@@ -93,3 +93,16 @@ router.put("/:id", function(request,response){
         }
     );
 });
+
+/* ======== DELETE PAGE ======== */
+router.delete("/:id", function(request,response){
+    db.User.findByIdAndDelete(request.params.id, function(error, deletedUser){
+        if(error) {
+            return response.send(error);
+        } else {
+            return response.redirect("/users");
+        }
+    });
+});
+
+module.exports = router;
