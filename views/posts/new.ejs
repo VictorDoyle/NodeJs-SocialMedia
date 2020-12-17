@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>New Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <style>
+      div.preview-images > img {
+        width: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <head>
+        <title>Social Media App </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+        <!-- Add custom css specific here -->
+      </head>
+      <body>
+    
+       <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item active" href="/">
+      Home
+    </a>
+    <!-- TODO: Messages Update in Version 1.0 -->
+    <a class="item" href="/comments/index">
+      Comments
+    </a>
+
+    <a class="item" href="/users/index">
+      Friends
+    </a>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+        <a class="ui item">
+          <i class="plus circle icon" href="/posts/new"></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/show">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+      
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 mt-3">
+          <h1>New Post</h1>
+
+          <form class="mt-4"
+            action="/post/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+          <h4>Post Photo</h4>
+            <div class="form-group">
+              <input type="file" name="file" id="input-files" class="form-control-file border"
+              />
+              <h4>Post Description</h4>
+              <textarea name="description" rows="10" cols="40" wrap="hard" placeholder="Description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="preview-images"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        let imagesPreview = function(input, placeToInsertImagePreview) {
+          if (input.files) {
+            let filesAmount = input.files.length;
+            for (i = 0; i < filesAmount; i++) {
+              let reader = new FileReader();
+              reader.onload = function(event) {
+                $($.parseHTML("<img>"))
+                  .attr("src", event.target.result)
+                  .appendTo(placeToInsertImagePreview);
+              };
+              reader.readAsDataURL(input.files[i]);
+            }
+          }
+        };
+        $("#input-files").on("change", function() {
+          imagesPreview(this, "div.preview-images");
+        });
+      });
+    </script>
+  </body>
+</html>
