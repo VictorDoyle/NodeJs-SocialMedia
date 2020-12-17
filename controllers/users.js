@@ -1,0 +1,62 @@
+// using express
+const express = require("express");
+// setting up router
+const router = express.Router();
+
+// database setup
+const db = require('../models');
+
+// Rest Routes
+/* 
+  * Index - GET - /users  - Presentational - all users
+  * New - GET - /users/new  - Presentational Form - user signup page
+  * Show - GET - /users/:id  - Presentational - show your user page or other user profiles
+  * Create - Post - /users  - Functional - data receiving for route to create new user
+  * Edit - GET - /users/:id/edit  - Presentational Form - edit user profile with previous filled data
+  * Update - PUT - /users/:id  - Functional - update user profile with new changes
+  * Delete - DELETE - /users/:id  - Functional - Deletes user profile by id from request (FIXME: Make sure to make delete only available to your own profile)
+*/
+
+
+/* ======== INDEX PAGE ======== */
+
+router.get("/", function(request, response){
+    db.User.find({}, function(error, allUsers){
+        if(error) {
+            return response.send(error);
+        } else const context = {users: allUsers};
+        return response.render("users/index", context);
+    });
+});
+
+
+/* ======== NEW PAGE ======== */
+
+router.get("/new", function(request,response){
+    response.render("users/new");
+});
+
+
+/* ======== SHOW PAGE ======== */
+router.get("/:id", function(request, response) {
+    db.User.findbyId(request.params.id, function (error, foundUser){
+        if(error) {
+            return response.send(error);
+        } else {
+            const context = {users: foundUser};
+            return response.render("users/show", context);
+        }
+    });
+});
+
+/* ======== CREATE PAGE ======== */
+
+router.post("/", function(request,response){
+    db.User.create(request.body, function(error, createdUser){
+        if(error) {
+            return response.send(error);
+        } else {
+            return response.redirect("/users");
+        }
+    });
+});
