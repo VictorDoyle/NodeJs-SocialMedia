@@ -11,15 +11,15 @@ mongoose.connect(mongoURL, {
 })
 
 mongoose.connection.on("connected", function(){
-    console.log("SCPiNet Connected");
+    console.log("Database Connected");
   });
   
   mongoose.connection.on("disconnected", function(){
-    console.log("SCPiNet disconnected");
+    console.log("Database disconnected");
   });
   
   mongoose.connection.on("error", function(error){
-    console.log("SCPiNet error", error);
+    console.log("MongoDB error", error);
   });
   module.exports = {
       User: require("./users"),
