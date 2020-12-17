@@ -24,6 +24,7 @@ router.get("/", function(request, response){
     db.User.find({}, function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
+
         return response.render("users/index", context);
     });
 });
@@ -42,7 +43,6 @@ router.get("/:id", function(request, response) {
         if(error)  return response.send(error);
         const context = {users: foundUser};
         return response.render("users/show", context);
-        
     });
 });
 
