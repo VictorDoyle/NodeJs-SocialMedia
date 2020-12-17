@@ -60,3 +60,36 @@ router.post("/", function(request,response){
         }
     });
 });
+
+/* ======== EDIT PAGE ======== */
+
+router.get("/:id/edit", function(request,response){
+    db.User.findbyId(request.params.id, function(error, foundUser){
+        if(error) {
+            return response.render(error);
+        } else {
+            const context = {users: foundUser};
+            return response.render("users/edit", context);
+        }
+    });
+});
+
+/* ======== UPDATE PAGE ======== */
+router.put("/:id", function(request,response){
+    db.User.findByIdAndUpdate(
+        request.params.id,
+        {
+            $set: {
+                ...request.body
+            }
+        },
+        { new: true},
+        function(error,updatedUser){
+            if(error) {
+                return response.send(error);
+            } else {
+                return response.redirect(`/users/${updatedUser._id}`);
+            }
+        }
+    );
+});
