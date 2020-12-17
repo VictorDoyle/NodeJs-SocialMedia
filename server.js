@@ -20,19 +20,28 @@ app.use(function (request, response, next) {
 	next();
 });
 // user authentication middleware for easy callback to currentUser
-app.use(function(request, response, next){
+/* app.use(function(request, response, next){
 	app.locals.user = request.session.currentUser;
 	next();
-});
+}); */
+
+/* check if user is present in session. if not redirect to login page */
+/* const authRequired = function(request, response, next){
+	if(request.session.currentUser) {
+		next();
+	} else {
+		response.redirect("/login");
+	};
+}; */
 
 
 //Controllers
 app.use("/users", controllers.users);
-/* app.use("/comments", controller.comments); //Uncomment after testing
-app.use("/posts", controller.posts);
-app.use("/images", controller.images); */
+/* app.use("/comments", authRequired, controller.comments); //Uncomment after testing
+app.use("/posts", authRequired,  controller.posts);
+app.use("/images", authRequired,  controller.images); */
 /* adding authentication and authorization controllers */
-app.use("/", controllers.auth)
+app.use("/",  controllers.auth)
 
 //Routes
 
