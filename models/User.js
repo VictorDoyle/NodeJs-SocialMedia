@@ -4,7 +4,9 @@ const UsersSchema = new mongoose.Schema(
     {
         firstName: { type: String, required: [true, "You must provide a first name"]},
         lastName: { type: String, required: [true, "You must provide a last name"] },
-        userName: { type: String, required: [true, "You must provide a username"] },
+        userName: { type: String, required: [true, "You must provide a username"], unique: true },
+        email: {type: String, required: [true, "You must provide an email"], unique: true},
+        password: {type: String, required: [true, "You must set a password"], minlength: 5},
         description: { type: String, required: [true, "You must provide a profile bio"] },
         posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
         picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
@@ -14,6 +16,8 @@ const UsersSchema = new mongoose.Schema(
     }
 )
 
+// We can make a separate Model for User with login info requirements and then make another
+// Model for "Profile" with description, posts, pictures, saved posts and accessibility.
 /* Added Model Export */
 
 const User = mongoose.model("User", UsersSchema);
