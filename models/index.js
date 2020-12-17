@@ -23,7 +23,7 @@ mongoose.connection.on("connected", function(){
   });
   module.exports = {
       User: require("./User"),
-      Post: require("./Post"),
+     /*  Post: require("./Post"),
       Image: require("./Image"),
-      Comment: require("./Comment"),
+      Comment: require("./Comment"), */
   }

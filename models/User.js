@@ -13,3 +13,7 @@ const UsersSchema = new mongoose.Schema(
     }
 )
 
+/* Added Model Export */
+
+const User = mongoose.model("User", UsersSchema);
+module.exports = User;
