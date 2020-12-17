@@ -24,6 +24,8 @@ app.use("/users", controllers.users);
 /* app.use("/comments", controller.comments); //Uncomment after testing
 app.use("/posts", controller.posts);
 app.use("/images", controller.images); */
+/* adding authentication and authorization controllers */
+app.use("/", controllers.auth)
 
 //Routes
 
