@@ -6,3 +6,8 @@ const CommentSchema = new mongoose.Schema(
         description: {type: String, required: true, minLength: 1 },
     }
 )
+
+
+const Comment = mongoose.model('Comment', CommentsSchema);
+
+module.exports = Comment;

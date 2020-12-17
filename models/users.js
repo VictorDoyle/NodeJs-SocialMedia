@@ -12,3 +12,6 @@ const UsersSchema = new mongoose.Schema(
         //Put in accessibility under user as we decide specifics.
     }
 )
+const User = mongoose.model('User', UsersSchema);
+
+module.exports = User;
