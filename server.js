@@ -1,7 +1,8 @@
 // External Code
 const express = require("express");
 const methodOverride = require("method-override");
-
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 //Internal Code
 const db = require("./models");
 const controllers = require("./controllers");
@@ -14,34 +15,50 @@ app.set("view engine", "ejs");
 //Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+
+/* access internal modules for custom CSS styling and app.js in public folder */
+app.use(express.static(__dirname + '/public'));
+
 //Logger
 app.use(function (request, response, next) {
 	console.log(request.url, request.method);
 	next();
 });
-// user authentication middleware for easy callback to currentUser
-/* app.use(function(request, response, next){
-	app.locals.user = request.session.currentUser;
-	next();
-}); */
 
-/* check if user is present in session. if not redirect to login page */
-/* const authRequired = function(request, response, next){
-	if(request.session.currentUser) {
-		next();
-	} else {
-		response.redirect("/login");
-	};
-}; */
+/* Session Middleware + User authentication */
+app.use(
+	session(
+	  {
+		// set the store to the MongoStore we required
+		store: new MongoStore({
+		  url: "mongodb://localhost:27017/Insta"
+		}),
+		// our secret is a signature in our sessions to verify that it is valid
+		secret: "Make custom password here",
+		resave: false,
+		saveUninitialized: false,
+		cookie: {
+		  maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
+		}
+	  }
+	)
+  );
+
+  // user authentication
+  app.use(function (request, response, next) {
+	  app.locals.user = request.session.currentUser;
+	  next();
+  })
+
 
 
 //Controllers
+app.use("/",  controllers.auth);
 app.use("/users", controllers.users);
 /* app.use("/comments", authRequired, controller.comments); //Uncomment after testing
 app.use("/posts", authRequired,  controller.posts);
 app.use("/images", authRequired,  controller.images); */
 /* adding authentication and authorization controllers */
-app.use("/",  controllers.auth)
 
 //Routes
 
