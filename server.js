@@ -15,7 +15,6 @@ app.set("view engine", "ejs");
 //Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
 /* access internal modules for custom CSS styling and app.js in public folder */
 app.use(express.static(__dirname + '/public'));
 
@@ -26,6 +25,7 @@ app.use(function (request, response, next) {
 });
 
 /* Session Middleware + User authentication */
+
 app.use(
 	session(
 	  {
@@ -43,7 +43,6 @@ app.use(
 	  }
 	)
   );
-
   // user authentication
   app.use(function (request, response, next) {
 	  app.locals.user = request.session.currentUser;

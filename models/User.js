@@ -2,15 +2,6 @@ const mongoose = require("mongoose");
 
 const UsersSchema = new mongoose.Schema(
     {
-<<<<<<< HEAD
-        firstName: { type: String, required:true, minLength: 1 },
-        lastName: { type: String, required:true, minLength: 1  },
-        userName: { type: String, required:true, minLength: 1  },
-        description: { type: String },
-        posts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
-        picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image", required:true },
-        savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" },
-=======
         firstName: { type: String, required: [true, "You must provide a first name"]},
         lastName: { type: String, required: [true, "You must provide a last name"] },
         userName: { type: String, required: [true, "You must provide a username"], unique: true },
@@ -21,7 +12,6 @@ const UsersSchema = new mongoose.Schema(
         picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
         /* savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" }, */ 
         // uncomment savedPosts after mvp
->>>>>>> origin/victorversion2
         //Put in accessibility under user as we decide specifics.
     }
 )
