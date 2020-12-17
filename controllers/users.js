@@ -39,7 +39,7 @@ router.get("/new", function(request,response){
 
 /* ======== SHOW PAGE ======== */
 router.get("/:id", function(request, response) {
-    db.User.findbyId(request.params.id, function (error, foundUser){
+    db.User.findById(request.params.id, function (error, foundUser){
         if(error)  return response.send(error);
         const context = {users: foundUser};
         return response.render("users/show", context);
@@ -61,7 +61,7 @@ router.post("/", function(request,response){
 /* ======== EDIT PAGE ======== */
 
 router.get("/:id/edit", function(request,response){
-    db.User.findbyId(request.params.id, function(error, foundUser){
+    db.User.findById(request.params.id, function(error, foundUser){
         if(error) {
             return response.render(error);
         } else {
