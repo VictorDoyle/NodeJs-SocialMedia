@@ -36,8 +36,31 @@ router.post("/register", async function(request, response){
 });
 
 
+/* login get req */
+router.get("/login", function(request, response){
+    response.render("auth/login");
+})
+/* login post req */
+router.post("/login", async function(request, response){
+    try {
+        const foundUser = await db.User.findOne({email: request.body.email});
 
+        if(!foundUser) return response.redirect("/register");
 
+        const match = await bcrypt.compare(request.body.password, foundUser.password);
+        if (!match) return response.send("Email/Password combination is invalid");
+
+        request.session.currentUser = {
+            id: foundUser._id,
+            username: foundUser.username,
+        }
+        response.redirect("/");
+
+    } catch(error) {
+        return response.send(error);
+    }
+
+})
 
 
 

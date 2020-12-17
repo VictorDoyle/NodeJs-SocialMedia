@@ -19,6 +19,13 @@ app.use(function (request, response, next) {
 	console.log(request.url, request.method);
 	next();
 });
+// user authentication middleware for easy callback to currentUser
+app.use(function(request, response, next){
+	app.locals.user = request.session.currentUser;
+	next();
+});
+
+
 //Controllers
 app.use("/users", controllers.users);
 /* app.use("/comments", controller.comments); //Uncomment after testing
@@ -29,7 +36,7 @@ app.use("/", controllers.auth)
 
 //Routes
 
-//Home Routes
+//Home Routes FIXME: change context
 app.get("/", function (request, response) {
 	response.render("home");
 });

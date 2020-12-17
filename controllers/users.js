@@ -47,6 +47,7 @@ router.get("/:id", function(request, response) {
 });
 
 /* ======== CREATE PAGE ======== */
+/* FIXME: delete the Create Page and use Auth Register for Create Route instead */
 
 router.post("/", function(request,response){
     db.User.create(request.body, function(error, createdUser){

@@ -6,7 +6,8 @@
     <!-- Add custom css specific here -->
   </head>
   <body>
-  <!-- SECTION: NAVBAR -->
+
+<% if (user) { %>
   <div class="ui secondary pointing menu">
     <h1>Social Media App</h1>
     <a class="item active" href="/">
@@ -22,10 +23,6 @@
     </a>
     <!-- NAVBAR RIGHT SIDE -->
     <div class="right menu">
-        <a class="ui item" href="/users/new">
-            <i class="plus square icon"></i>
-            Create Account
-          </a>
         <a class="ui item">
           <i class="plus circle icon" href="/posts/new"></i>
           New Post
@@ -37,7 +34,26 @@
       
     </div>
   </div>
+<% } %>
+  
+ 
+<% } else { %>
+<div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+  <div class="right menu">
+    <a class="ui item" href="/users/register">
+        <i class="plus square icon"></i>
+        Create Account
+      </a>
+  </div>
+  
+</div>
+  <% } %>
 
+
+    <!-- if user is logged in this navbar will show -->
+  <!-- SECTION: NAVBAR -->
+  
 
 <!-- main page content -->
 
