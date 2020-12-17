@@ -1,7 +1,22 @@
 {
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.8"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "instaproject",
+  "version": "1.0.0",
+  "description": "social media platform clone of Instagram with our personal additions",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:platothegeek/instaProject.git"
+  },
+  "author": "Lake Starr and Victor Doyle",
+  "license": "MIT"
 }
