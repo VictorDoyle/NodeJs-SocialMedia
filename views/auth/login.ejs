@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+  </head>
+  <body>
+  <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item active" href="/">
+      Home
+    </a>
+    <!-- TODO: Messages Update in Version 1.0 -->
+    <a class="item" href="/comments/index">
+      Comments
+    </a>
+
+    <a class="item" href="/users/index">
+      Friends
+    </a>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+        <a class="ui item" href="/users/new">
+            <i class="plus square icon"></i>
+            Create Account
+          </a>
+        <a class="ui item">
+          <i class="plus circle icon" href="/posts/new"></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/show">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+      
+    </div>
+  </div>
+
+
+<!-- main page content -->
+<form action="/login" method="POST">
+<input type="email" name="email" placeholder="email">
+<input type="password" name="password" placeholder="password" required minlength="5">
+<input type="submit" value="login">
+
+</form>
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+  </body>
+</html>

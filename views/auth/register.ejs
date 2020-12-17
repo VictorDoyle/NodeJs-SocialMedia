@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <title>Register</title>
 </head>
 <body>
     <h1> Register for An Account</h1>
 
     <form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username" required minlength="5">
+        <p>
+            <input type="text" name="firstName" placeholder="First Name" required>
+        </p>
+        <p>
+            <input type="text" name="lastName" placeholder="Last Name" required>
+        </p>
+        <p>
+    <input type="text" name="userName" placeholder="username" required minlength="5">
+        </p>
     <p>
     <input type="email" name="email" placeholder="email" required>
     </p>
@@ -17,7 +26,16 @@
     <p>
     <input type="submit" value="Register">
     </p>
-
+    <p>
+        <input type="text" name="description" placeholder="Your Profile Description" required minlength="1">
+    </p>
     </form>
+
+
+
+
+    <!-- required scripts for jquery and semantic-ui -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
 </body>
 </html>
