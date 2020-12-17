@@ -62,6 +62,12 @@ router.post("/login", async function(request, response){
 
 })
 
+/* Logout Delete Req */
+
+router.delete("/logout", async function(request, response){ 
+    await request.session.destroy();
+    response.redirect("/");
+});
 
 
 
