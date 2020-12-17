@@ -21,9 +21,9 @@ app.use(function (request, response, next) {
 });
 //Controllers
 app.use("/users", controllers.users);
-app.use("/comments", controller.comments);
+/* app.use("/comments", controller.comments); //Uncomment after testing
 app.use("/posts", controller.posts);
-app.use("/images", controller.images);
+app.use("/images", controller.images); */
 
 //Routes
 
