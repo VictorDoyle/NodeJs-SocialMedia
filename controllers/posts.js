@@ -6,7 +6,7 @@ const router = express.Router();
 // database setup
 const db = require('../models');
 // New Post route
-router.post("/post/upload", function(request,response){
+router.post("/upload", function(request,response){
     db.Post.create(request.body, function(error, createdPost){
         if (error) return response.send(error);
         db.User.findById(createdPost.user).exec(function(error, foundUser){

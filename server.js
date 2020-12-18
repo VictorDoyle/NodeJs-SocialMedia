@@ -54,8 +54,8 @@ app.use(
 //Controllers
 app.use("/",  controllers.auth);
 app.use("/users", controllers.users);
-/* app.use("/comments", authRequired, controller.comments); //Uncomment after testing
-app.use("/posts", authRequired,  controller.posts);
+// app.use("/comments", authRequired, controller.comments); //Uncomment after testing
+app.use("/posts",  controllers.posts);/*
 app.use("/images", authRequired,  controller.images); */
 /* adding authentication and authorization controllers */
 
