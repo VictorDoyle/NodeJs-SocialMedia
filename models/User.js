@@ -7,7 +7,7 @@ const UsersSchema = new mongoose.Schema(
         userName: { type: String, required: [true, "You must provide a username"], unique: true },
         email: {type: String, required: [true, "You must provide an email"], unique: true},
         password: {type: String, required: [true, "You must set a password"], minlength: 5},
-        description: { type: String, required: [true, "You must provide a profile bio"] },
+        description: { type: String, required: [true, "You must provide a profile bio"], maxlength: [150, "You've exceeded the character limit! Bio's are up to 150 characters"]},
         posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
         picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
         /* savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" }, */ 

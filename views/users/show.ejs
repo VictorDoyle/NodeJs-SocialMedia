@@ -41,19 +41,24 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
   <div class="userprofile__main"> <!-- NOTE: class for css public/main.css -- edit this to change overall profile box for user -->
-  <div class="ui card"> 
   <!-- User Header Profile Info  -->
-  <h2><%= user.userName %></h2>
   <div class="user__profilephoto">
-  <div class="ui circular segment">
     <h2 class="ui header">
       <img class= "user_profilephoto_img" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
       <div class="sub header"></div>
     </h2>
   </div>
-  </div>
   <!-- Number of Posts, Friends, Followers -->
   <!-- FIXME: UI Items Style: none !!!! or numbers will be confusing for UI -->
+  <div class="user__profilestats">
+    <div class="user__basics">
+    <h2><%= user.userName %></h2>
+    <a class="ui basic button" href="/users/<%= user._id %>/edit">
+      <i class="icon user"></i>
+      Edit Profile
+    </a>
+      </div>
+    
   <div class="ui large horizontal divided list">
     <div class="item">
       <i class="camera retro icon"></i>
@@ -77,10 +82,11 @@
       </div>
     </div>
   </div>
-  
+</div>
+</div> 
   <!-- User Name, Bio/Description, follow/unfollow button, message button -->
  <!-- FIXME: box styling/container for user description -->
- 
+ <div class="user__profilebio">
   <div class="content">
     <h4 class="ui sub header">Bio</h4>
     <div class="ui small feed">
@@ -91,19 +97,15 @@
         </div>
       </div>
     </div>
+    <!-- NOTE: Get rid of delete after mvp + testing-->
+   <!--  <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" />
+    </form> -->
+  </div>
 
 
-<!-- FIXME: Only show Delete form IF userSessionID = currentUserID +++++ Show DLT option inside Settings NOT on main user profile-->
-<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-  <input type="submit" value="Delete" />
-</form>
 
-<!-- FIXME: Only show edit form IF userSessionID = currentUserID +++++ move to righthand side of posts/friends/followers icons-->
-<div>
-<a href="/users/<%= user._id %>/edit">Edit</a>
-</div>
-</div>
-</div>
+
 
 
 <!-- User Profile populated Posts -->
