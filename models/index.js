@@ -10,19 +10,19 @@ mongoose.connect(mongoURL, {
 })
 
 mongoose.connection.on("connected", function(){
-    console.log("MongoDB is now Connected");
+    console.log("Database Connected");
   });
   
   mongoose.connection.on("disconnected", function(){
-    console.log("MongoDB is now disconnected");
+    console.log("Database disconnected");
   });
   
   mongoose.connection.on("error", function(error){
-    console.log("There is a Database error", error);
+    console.log("MongoDB error", error);
   });
   module.exports = {
       User: require("./User"),
-     /*  Post: require("./Post"),
+      Post: require("./Post"),
       Image: require("./Image"),
-      Comment: require("./Comment"), */
+      Comment: require("./Comment"), 
   }

@@ -1,0 +1,68 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+ <!-- SECTION: NAVBAR -->
+ <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item active" href="/">
+      Home
+    </a>
+    <!-- TODO: Messages Update in Version 1.0 -->
+    <a class="item" href="/comments/index">
+      Comments
+    </a>
+
+    <a class="item" href="/users/index">
+      Friends
+    </a>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+        <a class="ui item">
+          <i class="plus circle icon" href="/posts/new"></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/show">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+      
+    <% if(!Posts.length){ %>
+        <p>There are no posts currently available. But more likely there was an error.</p>
+    <% } %>
+    <ul>
+        <% Posts.forEach(Post => { %>
+            <div class="ui card">
+                <div class="content">
+                  <div class="right floated meta">placeholder time</div>
+                  <img class="ui avatar image" src=<%= User.picture %>> <%= User.userName %>
+                </div>
+                <div class="image">
+                  <img src=<%= Post.image %> loading="lazy">
+                </div>
+                <div class="description">
+                    <p><%= Post.description %></p>
+                </div>
+                <div class="content">
+                  <span class="right floated">
+                    <i class="heart outline like icon"></i>
+                    <%= Post.likes %>
+                  </span>
+                  <i class="comment icon"></i>
+                  <%= Post.comments.length %> comments
+                </div>
+                <div class="extra content">
+                  <div class="ui large transparent left icon input">
+                      <%= Post.comments %>
+                    <input type="text" placeholder="Add Comment...">
+                  </div>
+                </div>
+              </div>
+        <% }); %>
+    </ul>
+  </body>
+  </html>
+</body>

@@ -1,6 +1,6 @@
 module.exports = {
     users: require("./users"),
-    /* posts: require("./posts"), //Uncomment after testing
+    posts: require("./posts"),/* //Uncomment after testing
     images: require("./images"),
     comments: require("./comments") */
     auth: require("./auth"),

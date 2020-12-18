@@ -21,7 +21,6 @@
   "version": "1.0.0",
   "description": "social media platform clone of Instagram with our personal additions",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git@git.generalassemb.ly:platothegeek/instaProject.git"
