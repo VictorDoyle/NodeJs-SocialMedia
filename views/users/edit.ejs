@@ -73,9 +73,16 @@
      Submit Changes
    </button>
  </form>
- <button class="ui button"> 
-  <a href="javascript:javascript:history.go(-1)">Discard Changes</a>  <!-- FIXME: verify compatibility of return to bckpg with js -->
+
+ <button class="ui button" > 
+  <a href="javascript:javascript:history.go(-1)">Discard Changes <!-- FIXME: verify compatibility of return to bckpg with js -->
+  </a> 
  </button>    
+
+
+ <form action="/logout?_method=DELETE" method="POST">
+  <input type="submit" value="Logout">
+  </form>
   </main>
   
      

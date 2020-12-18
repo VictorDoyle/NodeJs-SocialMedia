@@ -46,7 +46,8 @@ app.use(
 
   // user authentication
   app.use(function (request, response, next) {
-	  app.locals.user = request.session.currentUser; /* FIXME: check locals.user */
+	  response.locals.user = request.session.currentUser; 
+	  console.log(session);
 	  next();
   })
 

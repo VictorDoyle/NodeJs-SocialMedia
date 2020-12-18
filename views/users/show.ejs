@@ -40,7 +40,7 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
   <div class="userprofile__main"> <!-- NOTE: class for css public/main.css -- edit this to change overall profile box for user -->
-  <div class="ui card"> <!-- change ui card or make width:100% + jstfy content center -->
+  <div class="ui card"> 
   <!-- User Header Profile Info  -->
   <h2><%= user.userName %></h2>
   <div class="ui circular segment">
@@ -56,7 +56,7 @@
       <i class="camera retro icon"></i>
       <div class="content">
         <div class="header">Posts</div>
-        89
+        <%= user.posts.length %>
       </div>
     </div>
     <div class="item">
@@ -96,13 +96,15 @@
 </form>
 
 <!-- FIXME: Only show edit form IF userSessionID = currentUserID +++++ move to righthand side of posts/friends/followers icons-->
-
+<div>
 <a href="/users/<%= user._id %>/edit">Edit</a>
+</div>
+</div>
 </div>
 
 
 <!-- User Profile populated Posts -->
-
+<div class="userprofile__posts">
 <div class="ui three column grid">
   <div class="column">
     <div class="ui fluid card">
@@ -135,14 +137,7 @@
     </div>
   </div>
 </div>
-<!-- <div class="ui medium images">
-  <img class="ui medium rounded image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
-  <img class="ui medium rounded image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
-  <img class="ui medium rounded image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
-  
-</div> -->
-
-
+</div>
 
     <!-- required scripts for jquery and semantic-ui -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -38,8 +38,8 @@ router.post("/register", async function(request, response){
 
 /* login get req */
 router.get("/login", function(request, response){
-    response.render("/");
-})
+    response.redirect("/users");
+});
 /* login post req */
 router.post("/login", async function(request, response){
     try {
@@ -47,6 +47,8 @@ router.post("/login", async function(request, response){
 
         if(!foundUser) return response.redirect("/register");
 
+        console.log(request.body)
+        console.log(foundUser)
         const match = await bcrypt.compare(request.body.password, foundUser.password);
         if (!match) return response.send("Email/Password combination is invalid");
 
@@ -58,6 +60,7 @@ router.post("/login", async function(request, response){
        return response.redirect("/");
 
     } catch(error) {
+        console.log(error);
         return response.send(error);
     }
 

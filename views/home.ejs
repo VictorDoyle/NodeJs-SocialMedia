@@ -32,13 +32,11 @@
           <i class="plus circle icon" href="/posts/new"></i>
           New Post
         </a>
-      <a class="ui item" href="/users/show">
+      <a class="ui item" href="/users/<%= user.id %>">
         <i class="user circle icon "></i>
         Profile
     </a>
-    <form action="/logout?_method=DELETE" method="POST">
-    <input type="submit" value="Logout">
-    </form>
+    
       
     </div>
   </div>
@@ -84,26 +82,28 @@
         <div class="ui two column very relaxed stackable grid">
           <div class="column">
             <div class="ui form">
+              <form action="/login" method="POST">
               <div class="field">
-                <form action="/login" method="POST">
                 <label>Email</label>
                 <div class="ui left icon input">
-                  <input type="email" name="email" placeholder="Email" required>
+                  <input type="email" name="email" placeholder="Email" required/>
                   <i class="user icon"></i>
                 </div>
               </div>
+            
               <div class="field">
                 <label>Password</label>
                 <div class="ui left icon input">
-                  <input type="password" required>
+                  <input type="password" name="password" required>
     
                   <i class="lock icon"></i>
                 </div>
               </div>
               <input type="submit" value="login" class="ui blue submit button"></input>
+            </form>
             </div>
           </div>
-        </form>
+        
           <!-- Sign up  -->
           <div class="middle aligned column">
             <a href="/register">
