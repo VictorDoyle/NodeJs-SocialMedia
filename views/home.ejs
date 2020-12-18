@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
-    <link rel="stylesheet" href="/styles/main.css"> <!-- FIXME: not linking -->
+    <link rel="stylesheet" href="/styles/main.css"> 
+    <!-- Jquery in app.js and event listeners -->
+    <script src="/scripts/app.js" defer></script>
    
     <title>Social Media App </title>
   </head>
@@ -19,15 +21,25 @@
       Home
     </a>
     <!-- TODO: Messages Update in Version 1.0 -->
-    <a class="item" href="/comments/index">
-      Comments
-    </a>
-
     <a class="item" href="/users/index">
       Friends
     </a>
+    <!-- FIXME: add search functionality -->
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
     <!-- NAVBAR RIGHT SIDE -->
     <div class="right menu">
+      <a class="ui item" href="/notifications">
+        <i class="plus heart icon" ></i>
+        Likes
+      </a>
         <a class="ui item" href="/posts/new">
           <i class="plus circle icon" ></i>
           New Post

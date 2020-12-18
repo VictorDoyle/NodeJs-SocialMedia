@@ -44,13 +44,26 @@
       <p>There are no users in your friends list yet.</p>
     <% } %>
 
-    <ul>
+    <div class="ui middle aligned divided list">
       <% users.forEach(user => { %>
-      <li>
-        <a href="/users/<%= user._id %>"> <%= user.userName %> - <%= user.userName %></a>
-      </li>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui button">Add</div> <!-- add link to /users/user.id/followbuttonclick -->
+          </div>
+          <!-- <img class="ui avatar image" src="linkback to /users/user.photo"> -->
+          <div class="content presentUsers">
+            <a href="/users/<%= user._id %>"> <%= user.firstName %> - <%= user.userName %></a>
+          </div>
+        </div>
+        
+      
       <% }) %>
-    </ul>
+    </div>
+
+    
+      <!-- find(request.query) and then show users that fit query. use ?_ -->
+   
+     
 
     
   </main>

@@ -21,7 +21,7 @@ const db = require('../models');
 /* ======== INDEX PAGE ======== */
 
 router.get("/", function(request, response){
-    db.User.find({}, function(error, allUsers){
+    db.User.find(request.query, function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
 
@@ -91,6 +91,26 @@ router.put("/:id", function(request,response){
         }
     );
 });
+
+
+/* ======== SEARCH ROUTE ======= */
+
+/* router.get('/search/:userName', function(request, response) {
+    let searchedUser = request.params.title;
+    Product.find({title: title}, function (err, products) {
+        if(err) {
+            return res.render('shop/search', {products: null});
+            ^^^^^^
+        }
+        res.render('shop/search', {products: products});
+    });
+}); */
+
+
+
+
+
+
 
 /* ======== DELETE PAGE ======== */
 router.delete("/:id", function(request,response){
