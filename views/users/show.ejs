@@ -28,7 +28,7 @@
           <i class="plus circle icon" href="/posts/new"></i>
           New Post
         </a>
-      <a class="ui item" href="/users/show">
+      <a class="ui item" href="/users/<%= user._id %>">
         <i class="user circle icon "></i>
         Profile
     </a>
@@ -38,11 +38,16 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
 
-  
-
-<section>
+  <!-- User Profile photo -->
+  <section>
+  <div class="ui circular segment">
+    <h2 class="ui header">
+      User photo
+      <div class="sub header">upload img src here</div>
+    </h2>
+  </div>
+  <!-- User Profile Info  -->
   <h2><%= user.userName %>'s Profile</h2>
-  <a href="/users/<%= user._id %>/edit">Edit</a>
   <ul>
     <li>Name: <%= user.userName %></li>
   </ul>
@@ -50,6 +55,12 @@
 <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
   <input type="submit" value="Delete" />
 </form>
+
+
+<a href="/users/<%= user._id %>/edit">Edit</a>
+<!-- User Profile populated Posts -->
+
+
 
 
 

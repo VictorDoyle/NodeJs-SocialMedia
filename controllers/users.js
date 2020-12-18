@@ -38,17 +38,9 @@ router.get("/new", function(request,response){
 
 
 /* ======== SHOW PAGE ======== */
-/* router.get("/:id", function(request, response) {
-    db.User.findById(request.params.id, function (error, foundUser){
-        if(error)  return response.send(error);
-        const context = {users: foundUser};
-        return response.render("users/show", context);
-    });
-}); */
-
 router.get("/:id", async function(request,response) {
     try {
-        const foundUser = await (await db.User.findById(request.params.id)).populate("posts");
+        const foundUser = await db.User.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
 
         const context = { user: foundUser};
         return response.render("users/show", context);
