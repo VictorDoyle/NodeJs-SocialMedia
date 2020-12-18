@@ -29,20 +29,24 @@ router.get("/new", function(request,response){
 });
 //Create/Upload post route
 router.post("/upload", function(request,response){
-    db.Post.create(request.body, function(error, createdPost){
-        if (error) return response.send(error);
-        db.User.findById(createdPost.user).exec(function(error, foundUser){
+    db.Post.create(request.body, function(err, createdPost){
+        if (err) return response.send(err);
+        db.User.findById(createdPost.user).exec(function(err, foundUser){
+            if (err) return response.send(err);
             foundUser.posts.push(createdPost);
+            createdPost.user.push(foundUser);
             foundUser.save();
         })
     });
-    db.Image.create(request.body, function(error, createdImage){
-        if (error) return response.send(error);
-        db.Post.findById(createdImage.post).exec(function(error, foundPost){
+    db.Image.create(request.body, function(err, createdImage){
+        if (err) return response.send(err);
+        db.Post.findById(createdImage.post).exec(function(err, foundPost){
+            if (err) return response.send(err);
             foundPost.image.push(createdImage);
-            foundImage.save();
+            createdImage.post.push(foundPost);
+            foundPost.save();
                 
-            return response.redirect("/home");
+            return response.redirect("/");
         })
     });
 });
