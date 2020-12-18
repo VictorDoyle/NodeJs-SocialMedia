@@ -21,7 +21,13 @@ const db = require('../models');
 /* ======== INDEX PAGE ======== */
 
 router.get("/", function(request, response){
-    db.User.find(request.query, function(error, allUsers){
+    const query = {
+        userName: {
+            $regex: request.query.userName,
+            $options: "i",
+        }
+    };
+    db.User.find(query, function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
 
@@ -65,7 +71,7 @@ router.post("/", async function(request, response) {
 router.get("/:id/edit", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
         if(error) return response.send(error);
-         
+         /* FIXME: add AuthReq here comparing sessionID = urlID/userID  */
             const context = {user: foundUser};
             return response.render("users/edit", context);
         
