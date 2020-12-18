@@ -13,7 +13,7 @@ const db = require("../models");
 
 // REGISTER - GET req - /register --  Presentational Form Route (signup form for user account creation)
 router.get("/register", function (request,response) {
-    response.render("/register");
+    response.render("auth/register");
 })
 
 // REGISTER - POST req - /register -- take body data and create an account
