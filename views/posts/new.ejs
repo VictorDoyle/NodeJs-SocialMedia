@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -14,11 +16,6 @@
   </head>
 
   <body>
-    <head>
-        <title>Social Media App </title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-        <!-- Add custom css specific here -->
-      </head>
       <body>
     
        <!-- SECTION: NAVBAR -->
@@ -60,12 +57,14 @@
           >
           <h4>Post Photo</h4>
             <div class="form-group">
-              <input type="file" name="image" id="input-files" class="form-control-file border"
+              <input type="file" name="image" id="input-files" class="form-control-file border" accept=".gif,.jpg,.jpeg,.png"
               />
               <h4>Post Description</h4>
               <textarea name="description" rows="10" cols="40" wrap="hard" placeholder="Description"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="ui buttons">
+              <button class="ui positive button btn btn-primary">Submit</button>
+            </div>
           </form>
         </div>
       </div>
