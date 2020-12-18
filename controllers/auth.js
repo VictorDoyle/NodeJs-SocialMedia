@@ -28,7 +28,7 @@ router.post("/register", async function(request, response){
         request.body.password = hash;
 
         const newUser = await db.User.create(request.body);
-        return response.redirect("/login");
+        return response.redirect("/");
 
     } catch (error) {
         return response.send(error);
@@ -38,8 +38,8 @@ router.post("/register", async function(request, response){
 
 /* login get req */
 router.get("/login", function(request, response){
-    response.render("auth/login");
-})
+    response.redirect("/users");
+});
 /* login post req */
 router.post("/login", async function(request, response){
     try {
@@ -47,6 +47,8 @@ router.post("/login", async function(request, response){
 
         if(!foundUser) return response.redirect("/register");
 
+        console.log(request.body)
+        console.log(foundUser)
         const match = await bcrypt.compare(request.body.password, foundUser.password);
         if (!match) return response.send("Email/Password combination is invalid");
 
@@ -54,9 +56,11 @@ router.post("/login", async function(request, response){
             id: foundUser._id,
             username: foundUser.username,
         }
-        response.redirect("/");
+        console.log(request.session.currentUser);
+       return response.redirect("/");
 
     } catch(error) {
+        console.log(error);
         return response.send(error);
     }
 

@@ -31,44 +31,44 @@ router.get("/", function(request, response){
 /* FIXME: Need to fix index route. all users index is showing on /users/ */
 
 /* ======== NEW PAGE ======== */
-
+// NOTE: don't need a new route for users since we have auth register
 router.get("/new", function(request,response){
     response.render("users/new");
 });
 
 
 /* ======== SHOW PAGE ======== */
-router.get("/:id", function(request, response) {
-    db.User.findById(request.params.id, function (error, foundUser){
-        if(error)  return response.send(error);
-        const context = {users: foundUser};
+router.get("/:id", async function(request,response) {
+    try {
+        const foundUser = await db.User.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
+
+        const context = { user: foundUser};
         return response.render("users/show", context);
-    });
+    } catch (error) {
+        return response.send(error);
+    }
 });
 
 /* ======== CREATE PAGE ======== */
-/* FIXME: delete the Create Page and use Auth Register for Create Route instead */
+router.post("/", async function(request, response) {
+    try {
+        await db.User.create(request.body);
+        return response.redirect("/"); /* FIXME: changeback */
+    } catch(error){
+        return response.send(error);
+    }
+})
 
-router.post("/", function(request,response){
-    db.User.create(request.body, function(error, createdUser){
-        if(error) {
-            return response.send(error);
-        } else {
-            return response.redirect("/users");
-        }
-    });
-});
 
 /* ======== EDIT PAGE ======== */
 
 router.get("/:id/edit", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
-        if(error) {
-            return response.render(error);
-        } else {
-            const context = {users: foundUser};
+        if(error) return response.send(error);
+         
+            const context = {user: foundUser};
             return response.render("users/edit", context);
-        }
+        
     });
 });
 

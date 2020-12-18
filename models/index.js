@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 mongoURL = "mongodb://localhost:27017/Insta"
 
 mongoose.connect(mongoURL, {
-    //This following part of code I was confused about and just copied directly from express fruits
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

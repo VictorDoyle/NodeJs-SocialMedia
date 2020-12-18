@@ -13,12 +13,12 @@
       
         <div class="left menu">
             <h1>Social Media App</h1>
-        <a class="ui item" href="/login">
-            <i class="plus square icon"></i>
-            Login To Your Account
-          </a>
           </div>
-          div class="right menu">
+          <div class="right menu">
+            <a class="ui item" href="/">
+                <i class="plus square icon"></i>
+                Login To Your Account
+              </a>
         <a class="ui item" href="/register">
             <i class="plus square icon"></i>
             Create Account
@@ -38,6 +38,13 @@
     <h1> Register for An Account</h1>
 
     <form action="/register" method="POST">
+        <p>
+            "Find A Cool Profile Picture and upload it below!"
+            <p>
+                 <!--<input type="file" name="picture"  accept=".gif,.jpg,.jpeg,.png"> // change to required after testing phase -->
+            </p>
+        </p>
+
         <p>
             <input type="text" name="firstName" placeholder="First Name" required>
         </p>

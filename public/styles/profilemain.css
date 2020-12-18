@@ -1,0 +1,34 @@
+body {
+    padding: 30px;
+}
+
+.userprofile__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.user__profilephoto {
+    display: flex;
+    justify-content: left;
+    
+}
+
+.user_profilephoto_img {
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    
+    
+}
+
+.userprofile__posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    padding-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
