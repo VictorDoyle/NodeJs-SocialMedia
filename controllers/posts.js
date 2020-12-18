@@ -57,6 +57,25 @@ router.get("/:id/edit", function(request,response){
         }
     });
 });
+//Update route
+router.put("/:id", function(request,response){
+    db.Post.findByIdAndUpdate(
+        request.params.id,
+        {
+            $set: {
+                ...request.body
+            }
+        },
+        { new: true},
+        function(error,updatedUser){
+            if(error) {
+                return response.send(error);
+            } else {
+                return response.redirect(`/users/${updatedUser._id}`);
+            }
+        }
+    );
+});
 //Delete route
 router.delete("/:id", function(request,response){
     db.Post.findByIdAndDelete(request.params.id, function(error, deletedPost){

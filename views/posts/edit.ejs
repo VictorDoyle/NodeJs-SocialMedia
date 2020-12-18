@@ -63,7 +63,7 @@
   </div>
   <h1>Editting options</h1>
   <form class="mt-4"
-            action="/upload"
+            action="/users/<%= Post._id %>?_method=PUT"
             method="POST"
             enctype="multipart/form-data"
           >
