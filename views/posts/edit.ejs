@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Social Media App </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+  </head>
+
+
+  <body>
+  <!-- SECTION: NAVBAR -->
+  <div class="ui secondary pointing menu">
+    <h1>Social Media App</h1>
+    <a class="item active" href="/">
+      Home
+    </a>
+    <!-- TODO: Messages Update in Version 1.0 -->
+    <a class="item" href="/comments/index">
+      Comments
+    </a>
+
+    <a class="item" href="/users/index">
+      Friends
+    </a>
+    <!-- NAVBAR RIGHT SIDE -->
+    <div class="right menu">
+        <a class="ui item">
+          <i class="plus circle icon" href="/posts/new"></i>
+          New Post
+        </a>
+      <a class="ui item" href="/users/show">
+        <i class="user circle icon "></i>
+        Profile
+    </a>
+    </div>
+  </div>
+  <h1>Current Card</h1>
+  <div class="ui card">
+    <div class="content">
+      <div class="right floated meta">placeholder time</div>
+      <img class="ui avatar image" src=<%= User.picture %>> <%= User.userName %>
+    </div>
+    <div class="image">
+      <img src=<%= Post.image %> type="module">
+    </div>
+    <div class="description">
+        <p><%= Post.description %></p>
+    </div>
+    <div class="content">
+      <span class="right floated">
+        <i class="heart outline like icon"></i>
+        <%= Post.likes %>
+      </span>
+      <i class="comment icon"></i>
+      <%= Post.comments.length %> comments
+    </div>
+    <div class="extra content">
+      <div class="ui large transparent left icon input">
+          <%= Post.comments %>
+        <input type="text" placeholder="Add Comment...">
+      </div>
+    </div>
+  </div>
+  <h1>Editting options</h1>
+  <form class="mt-4"
+            action="/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+          <h4>Change Post Photo</h4>
+            <div class="form-group">
+              <input type="file" name="image" id="input-files" class="form-control-file border" accept=".gif,.jpg,.jpeg,.png"
+              />
+              <h4>Change Post Description</h4>
+              <textarea name="description" rows="10" cols="40" wrap="hard" placeholder="Description"></textarea>
+            </div>
+            <div class="ui buttons">
+              <button class="ui positive button btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr />
+</body>
+</html>
