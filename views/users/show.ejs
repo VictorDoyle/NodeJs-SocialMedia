@@ -38,16 +38,42 @@
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
 
-  <!-- User Profile photo -->
-  <section>
+  <!-- User Profile Info  -->
+  <h2><%= user.userName %>'s Profile</h2>
   <div class="ui circular segment">
     <h2 class="ui header">
       User photo
       <div class="sub header">upload img src here</div>
     </h2>
   </div>
-  <!-- User Profile Info  -->
-  <h2><%= user.userName %>'s Profile</h2>
+  <!-- Number of Posts, Friends, Followers -->
+  <!-- FIXME: UI Items Style: none !!!! or numbers will be confusing for UI -->
+  <div class="ui ordered horizontal list">
+    <div class="item">
+      <i class="camera retro icon"></i>
+      <div class="content">
+        <div class="header">Posts</div>
+        89
+      </div>
+    </div>
+    <div class="item">
+      <i class="users icon"></i>
+      <div class="content">
+        <div class="header"> Friends</div>
+        44 
+      </div>
+    </div>
+    <div class="item">
+      <i class="street view icon"></i>
+      <div class="content">
+        <div class="header">Followers</div>
+        11 
+      </div>
+    </div>
+  </div>
+
+
+  <!-- End  -->
   <ul>
     <li>Name: <%= user.userName %></li>
   </ul>
@@ -59,6 +85,9 @@
 
 
 <a href="/users/<%= user._id %>/edit">Edit</a>
+
+
+
 <!-- User Profile populated Posts -->
 
 
