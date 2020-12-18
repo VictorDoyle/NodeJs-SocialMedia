@@ -11,16 +11,13 @@ body {
 
 .user__profilephoto {
     display: flex;
-    justify-content: left;
-    
-}
-
-.user_profilephoto_img {
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    
-    
+}
+.user_profilephoto_img {
+    display: flex;
+    border-radius: 50%;
+    min-width: 20vh;
+    padding: 10px;
 }
 
 .userprofile__posts {
@@ -32,3 +29,14 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.user__profilestats .ui.large.list {
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 100%;
+}
+
+.user__profilebio {
+    display: flex;
+    }
