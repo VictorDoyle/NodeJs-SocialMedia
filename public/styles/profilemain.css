@@ -9,6 +9,20 @@ body {
     padding-bottom: 30px;
 }
 
+.user__profilephoto {
+    display: flex;
+    justify-content: left;
+    
+}
+
+.user_profilephoto_img {
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    
+    
+}
+
 .userprofile__posts {
     display: flex;
     justify-content: center;

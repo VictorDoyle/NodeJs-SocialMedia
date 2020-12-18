@@ -30,10 +30,11 @@
           <i class="plus circle icon" href="/posts/new"></i>
           New Post
         </a>
-      <a class="ui item" href="/users/<%=  locals.user._id %>">
+      <a class="ui item" href="/users/<%= user.id %>">
         <i class="user circle icon "></i>
         Profile
     </a>
+    
       
     </div>
   </div>
@@ -43,11 +44,13 @@
   <div class="ui card"> 
   <!-- User Header Profile Info  -->
   <h2><%= user.userName %></h2>
+  <div class="user__profilephoto">
   <div class="ui circular segment">
     <h2 class="ui header">
-      User photo
-      <div class="sub header">upload img src here</div>
+      <img class= "user_profilephoto_img" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
+      <div class="sub header"></div>
     </h2>
+  </div>
   </div>
   <!-- Number of Posts, Friends, Followers -->
   <!-- FIXME: UI Items Style: none !!!! or numbers will be confusing for UI -->
