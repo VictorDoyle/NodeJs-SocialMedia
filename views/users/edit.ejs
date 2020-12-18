@@ -39,40 +39,43 @@
   <!-- SECTION: USER PROFILE EDIT PAGE BELOW -->
   <!-- Add more setting changes for everything that fits Schema values -->
   <main>
-    <h1>Edit <%= user.userName %> </h1>
+    <h4 class="ui horizontal divider header">
+      <i class="bar chart icon"></i>
+      Edit  <%= user.userName %>
+    </h4>
     <form action="/users/<%= user._id %>?_method=PUT" method="POST">
-      <p>
-        Change Your Profile Picture
-        <input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png">
-    </p>
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td class="two wide column">Profile Picture</td>
+          <td><input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png"></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="userName" value="<%= user.userName %>" /></td>
+        </tr>
+        <tr>
+          <td>User Biography</td>
+          <td><input type="text" name="description" value="<%= user.description %>" /></td>
+        </tr>
+        <tr>
+          <td>Email Address</td>
+          <td><input type="email" name="email" value="<%= user.email %>" /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input type="password" name="password" value="<%= user.password %>" /></td>
+        </tr>
+      </tbody>
+    </table>
 
-      <p>
-        Change Your Username
-      <input type="text" name="userName" value="<%= user.userName %>" />
-    </p>
-
-      <p>
-        Change Your User Biography
-      <input type="text" name="description" value="<%= user.description %>" />
-    </p>
-
-    <p> Change Your Email Address
-      <input type="email" name="email" value="<%= user.email %>" />
-    </p>
-
-    <p> Change Your Password
-      <input type="password" name="password" value="<%= user.password %>" />
-    </p>
-      <button input type="submit" value="Update" class="ui primary button">
-        Submit Changes
-      </button>
-    </form>
-      <button class="ui button"> 
-       <a href="javascript:javascript:history.go(-1)">Discard Changes</a>  <!-- FIXME: verify compatibility of return to bckpg with js -->
-      </button>
-      
-      
-    
+    <button input type="submit" value="Update" class="ui primary button">
+     Submit Changes
+   </button>
+ </form>
+ <button class="ui button"> 
+  <a href="javascript:javascript:history.go(-1)">Discard Changes</a>  <!-- FIXME: verify compatibility of return to bckpg with js -->
+ </button>    
   </main>
   
      
