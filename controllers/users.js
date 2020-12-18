@@ -31,7 +31,7 @@ router.get("/", function(request, response){
 /* FIXME: Need to fix index route. all users index is showing on /users/ */
 
 /* ======== NEW PAGE ======== */
-
+// NOTE: don't need a new route for users since we have auth register
 router.get("/new", function(request,response){
     response.render("users/new");
 });

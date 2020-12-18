@@ -54,7 +54,7 @@ router.post("/login", async function(request, response){
             id: foundUser._id,
             username: foundUser.username,
         }
-        response.redirect("/");
+       return response.redirect("/");
 
     } catch(error) {
         return response.send(error);
