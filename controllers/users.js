@@ -66,12 +66,11 @@ router.post("/", function(request,response){
 
 router.get("/:id/edit", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
-        if(error) {
-            return response.render(error);
-        } else {
-            const context = {users: foundUser};
+        if(error) return response.send(error);
+         
+            const context = {user: foundUser};
             return response.render("users/edit", context);
-        }
+        
     });
 });
 
