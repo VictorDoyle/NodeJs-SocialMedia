@@ -4,6 +4,8 @@ const express = require("express");
 const router = express.Router();
 // database setup
 const db = require('../models');
+// multer setup
+const upload = require("multer")({dest: "../upload/"});
 // Rest Routes
 /* 
   * Index - GET - /users  - Presentational - all posts (feed)
@@ -28,28 +30,31 @@ router.get("/new", function(request,response){
     response.render("posts/new");
 });
 //Create/Upload post route
-router.post("/upload", function(request,response){
+router.post("/:id/upload", upload.single("image"), function(request,response){
+    console.log(request.files);
+    console.log(request.body);
+    request.body.user = request.params.id;
     db.Post.create(request.body, function(err, createdPost){
         if (err) return response.send(err);
         db.User.findById(createdPost.user).exec(function(err, foundUser){
             if (err) return response.send(err);
             foundUser.posts.push(createdPost);
-            createdPost.user.push(foundUser);
+            createdPost.user = foundUser;
             foundUser.save();
         })
+        const imageData = {
+            post: createdPost,
+            image: request.file.image, //Check if working
+        };
+        db.Image.create(imageData, function(err, createdImage){
+                if (err) return response.send(err);
+                createdPost.image = createdImage;
+                createdPost.save();
+                    
+                return response.redirect("/");
+            })
+        });
     });
-    db.Image.create(request.body, function(err, createdImage){
-        if (err) return response.send(err);
-        db.Post.findById(createdImage.post).exec(function(err, foundPost){
-            if (err) return response.send(err);
-            foundPost.image.push(createdImage);
-            createdImage.post.push(foundPost);
-            foundPost.save();
-                
-            return response.redirect("/");
-        })
-    });
-});
 //Edit route
 router.get("/:id/edit", function(request,response){
     db.Post.findById(request.params.id, function(error, foundUser){

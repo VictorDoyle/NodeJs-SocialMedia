@@ -6,7 +6,7 @@ const PostSchema = new mongoose.Schema(
         image: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
         description: {type: String, required: true, minLength: 1 },
         // audio: { } Just placeholder for if audio content is added after MVP
-        likes: {type: Number, required: true, minLength: 1},
+        likes: {type: Number, required: true, default: 0},
         comments: {type: mongoose.Schema.Types.ObjectId, ref: "Comment"},
     }
 )

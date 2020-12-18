@@ -27,20 +27,7 @@ router.get("/images", function(request, response){
 router.get("images/new", function(request,response){
   response.render("images/new");
 });
-//Create/Upload image route - Commented out so that If I need I can call the image creation route from the post creation route
-/* 
-router.post("/upload", function(request,response){
-  db.Image.create(request.body, function(err, createdImage){
-      if (err) return response.send(err);
-      db.Post.findById(createdImage.post).exec(function(err, foundPost){
-          if (err) return response.send(err);
-          foundPost.image.push(createdImage);
-          createdImage.post.push(foundPost);
-          foundPost.save();             
-          return response.redirect("/");
-      })
-  });
-}); */
+ 
 router.put("/:id", function(request,response){
   db.Image.findByIdAndUpdate(
       request.params.id,
