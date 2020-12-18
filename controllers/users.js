@@ -50,17 +50,15 @@ router.get("/:id", async function(request,response) {
 });
 
 /* ======== CREATE PAGE ======== */
-/* FIXME: delete the Create Page and use Auth Register for Create Route instead */
+router.post("/", async function(request, response) {
+    try {
+        await db.User.create(request.body);
+        return response.redirect("/"); /* FIXME: changeback */
+    } catch(error){
+        return response.send(error);
+    }
+})
 
-router.post("/", function(request,response){
-    db.User.create(request.body, function(error, createdUser){
-        if(error) {
-            return response.send(error);
-        } else {
-            return response.redirect("/users");
-        }
-    });
-});
 
 /* ======== EDIT PAGE ======== */
 

@@ -38,7 +38,7 @@ router.post("/register", async function(request, response){
 
 /* login get req */
 router.get("/login", function(request, response){
-    response.render("auth/login");
+    response.render("/");
 })
 /* login post req */
 router.post("/login", async function(request, response){
@@ -54,6 +54,7 @@ router.post("/login", async function(request, response){
             id: foundUser._id,
             username: foundUser.username,
         }
+        console.log(request.session.currentUser);
        return response.redirect("/");
 
     } catch(error) {

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
     <!-- NOTE: below is CSS file link src from the public folder -->
-    <link rel="stylesheet" href="/public/styles/main.css"> <!-- FIXME: not linking -->
+    <link rel="stylesheet" href="/styles/profilemain.css"> 
   </head>
 
 
@@ -30,7 +30,7 @@
           <i class="plus circle icon" href="/posts/new"></i>
           New Post
         </a>
-      <a class="ui item" href="/users/<%= user.currentUserID._id %>"> <!-- FIXME: not linking to currentUser -->
+      <a class="ui item" href="/users/<%=  locals.user._id %>">
         <i class="user circle icon "></i>
         Profile
     </a>
@@ -110,7 +110,7 @@
         <img class="ui medium rounded image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
       </div>
       <div class="content">
-        <a class="header">Post Link via ID here </a>
+        <a class="header">Post Link via ID here</a>
       </div>
     </div>
   </div>
