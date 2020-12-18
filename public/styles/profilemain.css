@@ -38,5 +38,9 @@ body {
 }
 
 .user__profilebio {
-    display: flex;
+    display:flex;
+    margin-left: 35%;
+    margin-right: 35%;
+    padding-bottom: 1%;
+    text-align: justify;
     }

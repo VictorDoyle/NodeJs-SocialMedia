@@ -97,18 +97,13 @@
         </div>
       </div>
     </div>
+    <!-- NOTE: Get rid of delete after mvp + testing-->
+   <!--  <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+      <input type="submit" value="Delete" />
+    </form> -->
   </div>
 
 
-<!-- FIXME: Only show Delete form IF userSessionID = currentUserID +++++ Show DLT option inside Settings NOT on main user profile-->
-<form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-  <input type="submit" value="Delete" />
-</form>
-
-
-<div>
-<a href="/users/<%= user._id %>/edit">Edit</a>
-</div>
 
 
 

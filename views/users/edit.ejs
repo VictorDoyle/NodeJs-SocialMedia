@@ -47,17 +47,17 @@
     <form action="/users/<%= user._id %>?_method=PUT" method="POST">
     <table class="ui definition table">
       <tbody>
-        <tr>
+        <!-- <tr>
           <td class="two wide column">Profile Picture</td>
           <td><input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png"></td>
-        </tr>
+        </tr> -->
         <tr>
           <td>Username</td>
           <td><input type="text" name="userName" value="<%= user.userName %>" /></td>
         </tr>
         <tr>
           <td>User Biography</td>
-          <td><input type="text" name="description" value="<%= user.description %>" /></td>
+          <td><input type="text" name="description" value="<%= user.description %>" maxlength="150" /></td>
         </tr>
         <tr>
           <td>Email Address</td>
