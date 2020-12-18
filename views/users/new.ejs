@@ -1,3 +1,6 @@
+<!-- =================== NOTE: Might delete this New.ejs template since we are using Register.ejs as "New Route" Template -->
+<!--  ==================================================================================================================  -->
+<!--  ==================================================================================================================  -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,6 +45,7 @@
 
   <main>
     <form action="/users" method="POST">
+      <input type="file" name="picture" placeholder="Find A Cool Profile Picture!" accept=".gif,.jpg,.jpeg,.png">
       <input type="text" name="firstName" placeholder="First Name" />
       <input type="text" name="lastName" placeholder="Last Name" />
       <input type="text" name="userName" placeholder="Choose Your Username" />

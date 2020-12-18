@@ -41,10 +41,41 @@
   <main>
     <h1>Edit <%= user.userName %> </h1>
     <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+      <p>
+        Change Your Profile Picture
+        <input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png">
+    </p>
+
+      <p>
+        Change Your Username
       <input type="text" name="userName" value="<%= user.userName %>" />
-      <input type="submit" value="Update">
+    </p>
+
+      <p>
+        Change Your User Biography
+      <input type="text" name="description" value="<%= user.description %>" />
+    </p>
+
+    <p> Change Your Email Address
+      <input type="email" name="email" value="<%= user.email %>" />
+    </p>
+
+    <p> Change Your Password
+      <input type="password" name="password" value="<%= user.password %>" />
+    </p>
+      <button input type="submit" value="Update" class="ui primary button">
+        Submit Changes
+      </button>
     </form>
+      <button class="ui button"> 
+       <a href="javascript:javascript:history.go(-1)">Discard Changes</a>  <!-- FIXME: verify compatibility of return to bckpg with js -->
+      </button>
+      
+      
+    
   </main>
+  
+     
 
 
 
