@@ -8,3 +8,22 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.newPostHeader {
+    display: flex;
+    justify-content: center;
+}
+.newPostImage {
+    object-fit: cover;
+    /* FIXME: Need to force img stretch into a square at all times for posts */
+    width:230px;
+    height:230px;
+}
+
+.newPostPhotoContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}

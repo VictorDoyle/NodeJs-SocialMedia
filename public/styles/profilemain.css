@@ -52,6 +52,11 @@ body {
         margin-right: auto;
     }
 
+.settingsHeader {
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
 .userSettingsContent {
     display: flex;
     justify-content: center;
@@ -60,6 +65,13 @@ body {
 }
 
 .settingButtons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+.logoutButton {
     display: flex;
     justify-content: center;
     padding: 10px;

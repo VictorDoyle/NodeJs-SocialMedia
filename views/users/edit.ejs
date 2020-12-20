@@ -71,10 +71,12 @@
   <!-- SECTION: USER PROFILE EDIT PAGE BELOW -->
   <!-- Add more setting changes for everything that fits Schema values -->
   <div>
+    <div class="settingsHeader"> 
     <h4 class="ui horizontal divider header">
       <i class="bar chart icon"></i>
       Edit  <%= user.userName %>
     </h4>
+  </div>
     <div class="userSettingsContent">
     <form action="/users/<%= user._id %>?_method=PUT" method="POST">
     <table class="ui definition table">
@@ -131,10 +133,11 @@
 
 </div>
 
- <form action="/logout?_method=DELETE" method="POST">
-  <input type="submit" value="Logout">
+<div class= "logoutButton"> 
+<form action="/logout?_method=DELETE" method="POST">
+  <input type="submit" value="Logout" class="ui secondary button">
   </form>
-
+</div>
   </main>
   
      
