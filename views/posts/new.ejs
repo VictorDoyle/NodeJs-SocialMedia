@@ -3,11 +3,12 @@
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
+    <link rel="stylesheet" href="/styles/main.css"> 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>New Post</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+   <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> -->
     <style>
       div.preview-images > img {
         width: 50%;
@@ -19,32 +20,66 @@
       <body>
     
        <!-- SECTION: NAVBAR -->
-  <div class="ui secondary pointing menu">
-    <h1>Social Media App</h1>
-    <a class="item active" href="/">
-      Home
-    </a>
-    <!-- TODO: Messages Update in Version 1.0 -->
-    <a class="item" href="/comments/index">
-      Comments
-    </a>
-
-    <a class="item" href="/users/index">
-      Friends
-    </a>
-    <!-- NAVBAR RIGHT SIDE -->
-    <div class="right menu">
-        <a class="ui item">
-          <i class="plus circle icon" href="/posts/new"></i>
-          New Post
+       <div class="ui secondary pointing menu">
+        <h1>Social Media App</h1>
+        <a class="item active" href="/">
+          Home
         </a>
-      <a class="ui item" href="/users/show">
-        <i class="user circle icon "></i>
-        Profile
-    </a>
-      
-    </div>
-  </div>
+        <a class="item" href="/users?userName=">
+          Friends
+        </a>
+    
+        <div class="mainPageSearchBar">
+          <form action="/users" method="GET">
+          <div class="ui action input">
+            <input type="text" name="userName" placeholder="Search Users...">
+    
+            <button class="ui button">Search</button>
+          </div>
+          </form>
+        </div>
+        <!-- NAVBAR RIGHT SIDE -->
+        <div class="right menu">
+          <!-- Notifications here -->
+          <div class="ui item">
+            <div class="ui dropdown">
+              <i class="plus heart icon"></i>
+              <div class="text">Notifications</div>
+              <i class="dropdown icon"></i>
+              <!--FIXME: Add Ajax here for notification storing -->
+              <div class="menu">
+                <div class="item">New</div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                </div>
+                  </div>
+                </div>
+            
+            <a class="ui item" href="/posts/new">
+              <i class="plus circle icon" ></i>
+              New Post
+            </a>
+          <a class="ui item" href="/users/<%= user.id %>">
+            <i class="user circle icon "></i>
+            Profile
+        </a>
+        
+          
+        </div>
+      </div>
+
+
+      <!-- SECTION : New Post content -->
     <div class="container">
       <div class="row">
         <div class="col-sm-8 mt-3">
