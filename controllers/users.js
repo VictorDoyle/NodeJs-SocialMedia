@@ -34,13 +34,17 @@ router.get("/", function(request, response){
         return response.render("users/index", context);
     });
 });
-/* FIXME: Need to fix index route. all users index is showing on /users/ */
 
-/* ======== NEW PAGE ======== */
+/* ======== HOME PAGE ======== */
 // NOTE: don't need a new route for users since we have auth register
-router.get("/new", function(request,response){
-    response.render("users/new");
+router.get("/", function(request,response){
+    db.User.findById(request.params.id, function(error, foundUser){
+        if(error) return response.send(error);
+            const context = {user: foundUser}; 
+    response.render("home", context);
 });
+});
+/* FIXME: Need to connect context to homepage route  */
 
 
 /* ======== SHOW PAGE ======== */
@@ -109,20 +113,13 @@ router.put("/:id", function(request,response){
 });
 
 
-
-
-
-
-
-
-
 /* ======== DELETE PAGE ======== */
 router.delete("/:id", function(request,response){
     db.User.findByIdAndDelete(request.params.id, function(error, deletedUser){
         if(error) {
             return response.send(error);
         } else {
-            return response.redirect("/users");
+            return response.redirect("/");
         }
     });
 });

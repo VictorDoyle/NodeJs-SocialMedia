@@ -80,16 +80,23 @@
         <%= user.userName %> 's Account Setting
         </h4>
       </div>
-<div class="ui secondary vertical pointing menu">
-    <a class="item"> 
+      <div class="settingsOptionsMenu">
+<div class="ui secondary vertical pointing menu"> <!-- FIXME: use jquery onbutton click change class to item active. off click change back to item -->
+    <a class="item active"> 
       Home
     </a>
-    <a class="item">
-      Messages
+    <a class="item"> <!-- TODO: Build out routes -->
+      Accessibility
     </a>
-    <a class="item active">
-      Friends
-    </a>
+    <a class="item"> <!-- TODO: Build out routes -->
+        Change Language 
+      </a>
+      <a class="item"> <!-- TODO: Build out routes -->
+        Return to Account
+      </a>
+      <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+      <input class="item" type="submit" value="Delete Your Account" /> <!-- FIXME: after delete redirect to homepage ++ delete storedCookie-->
+    </form> <!-- FIXME: Need a window pop up to guarantee the user is SURE to delete account -->
   </div>
 </div>
   

@@ -71,8 +71,18 @@ body {
     padding-top: 25px;
 }
 
+.settingsOptionsMenu {
+    display: flex;
+    justify-content: center;
+}
+
 .logoutButton {
     display: flex;
     justify-content: center;
     padding: 10px;
+}
+
+.bookmark icon:hover {
+    opacity: 0.5;
+
 }
