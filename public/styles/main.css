@@ -9,6 +9,22 @@ body {
     margin-right: auto;
 }
 
+.mainPageLoginBox {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.registerPageContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    align-content: center;
+}
 .newPostHeader {
     display: flex;
     justify-content: center;
