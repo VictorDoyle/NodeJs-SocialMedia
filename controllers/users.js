@@ -78,6 +78,16 @@ router.get("/:id/edit", function(request,response){
     });
 });
 
+/* ======== USER SETTINGS PAGE */
+
+router.get("/:id/settings", function(request, response) {
+    db.User.findById(request.params.id, function(error, foundUser){
+        if(error) return response.send(error);
+            const context = {user: foundUser}; 
+            return response.render("settings", context);
+});
+});
+
 /* ======== UPDATE PAGE ======== */
 router.put("/:id", function(request,response){
     db.User.findByIdAndUpdate(
