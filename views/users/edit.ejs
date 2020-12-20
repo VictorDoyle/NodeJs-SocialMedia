@@ -53,19 +53,35 @@
         </tr> -->
         <tr>
           <td>Username</td>
-          <td><input type="text" name="userName" value="<%= user.userName %>" /></td>
+          <td>
+            <div class="ui input">
+            <input type="text" name="userName" value="<%= user.userName %>" />
+          </div>
+          </td>
         </tr>
         <tr>
           <td>User Biography</td>
-          <td><input type="text" name="description" value="<%= user.description %>" maxlength="150" /></td>
+          <td>
+            <div class="ui input">
+              <input type="text" name="description" value="<%= user.description %>" maxlength="150" />
+            </div>
+            </td>
         </tr>
         <tr>
           <td>Email Address</td>
-          <td><input type="email" name="email" value="<%= user.email %>" /></td>
+          <td>
+            <div class="ui input">
+              <input type="email" name="email" value="<%= user.email %>" />
+          </div>
+          </td>
         </tr>
         <tr>
           <td>Password</td>
-          <td><input type="password" name="password" value="<%= user.password %>" /></td>
+          <td>
+            <div class="ui input">
+            <input type="password" name="password" value="<%= user.password %>" />
+          </div>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -1,0 +1,31 @@
+body {
+    padding: 30px;
+}
+
+.mainPageSearchBar {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainIndexContent {
+    float: left;
+    margin-right: 28px;
+    max-width: 614px;
+    width: 50%;
+}
+
+
+.rightIndexContent {
+    display: flex;
+    margin: 0 0 12px -16px;
+    width: 30%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+}

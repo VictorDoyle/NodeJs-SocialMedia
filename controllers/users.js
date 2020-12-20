@@ -99,18 +99,6 @@ router.put("/:id", function(request,response){
 });
 
 
-/* ======== SEARCH ROUTE ======= */
-
-/* router.get('/search/:userName', function(request, response) {
-    let searchedUser = request.params.title;
-    Product.find({title: title}, function (err, products) {
-        if(err) {
-            return res.render('shop/search', {products: null});
-            ^^^^^^
-        }
-        res.render('shop/search', {products: products});
-    });
-}); */
 
 
 

@@ -20,11 +20,10 @@
     <a class="item active" href="/">
       Home
     </a>
-    <!-- TODO: Messages Update in Version 1.0 -->
     <a class="item" href="/users?userName=">
       Friends
     </a>
-    <!-- FIXME: add search functionality -->
+
     <div class="mainPageSearchBar">
       <form action="/users" method="GET">
       <div class="ui action input">
@@ -36,10 +35,31 @@
     </div>
     <!-- NAVBAR RIGHT SIDE -->
     <div class="right menu">
-      <a class="ui item" href="/notifications">
-        <i class="plus heart icon" ></i>
-        Likes
-      </a>
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
         <a class="ui item" href="/posts/new">
           <i class="plus circle icon" ></i>
           New Post
@@ -142,31 +162,6 @@
 
 
 
-
-
-
-
-<!-- Secondary Navbar for Version 1.0 -->
-<!-- <div class="ui vertical menu">
-    <a class="teal item">
-      Friend Requests
-      <div class="ui teal left pointing label">1</div>
-    </a>
-    <a class="item">
-      Likes
-      <div class="ui label">51</div>
-    </a>
-    <a class="item active">
-      Comments
-      <div class="ui label">1</div>
-    </a>
-    <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search for Users...">
-        <i class="search icon"></i>
-      </div>
-    </div>
-  </div> -->
 
 
     <!-- required scripts for jquery and semantic-ui -->

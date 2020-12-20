@@ -4,6 +4,8 @@
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
+      <!-- Add custom css specific here -->
+      <link rel="stylesheet" href="/styles/mainindexpage.css"> 
   </head>
 
 
@@ -14,20 +16,50 @@
     <a class="item active" href="/">
       Home
     </a>
-    <!-- TODO: Messages Update in Version 1.0 -->
-    <a class="item" href="/comments/index">
-      Comments
-    </a>
-
-    <a class="item" href="/users/index">
+    <a class="item" href="/users?userName=">
       Friends
     </a>
+
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
     <!-- NAVBAR RIGHT SIDE -->
     <div class="right menu">
-      <a class="ui item" href="/posts/new">
-        <i class="plus circle icon" ></i>
-        New Post
-      </a>
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
+        <a class="ui item" href="/posts/new">
+          <i class="plus circle icon" ></i>
+          New Post
+        </a>
       <a class="ui item" href="/users/<%= user.id %>">
         <i class="user circle icon "></i>
         Profile
@@ -39,6 +71,7 @@
 
   <!-- SECTION: SHOW ALL USERS BELOW TAGGED BY /friends ID -->
   <main>
+    <div class="mainIndexContent">
   <h2> Friends List</h2>
     <% if(!users.length) { %>
       <p>There are no users in your friends list yet.</p>
@@ -59,13 +92,31 @@
       
       <% }) %>
     </div>
+       
 
-    
-      <!-- find(request.query) and then show users that fit query. use ?_ -->
-   
-     
+  </div>
+  <div class="rightIndexContent">
+    <div class="right floated left aligned six wide column">
+      <div class="ui segment">
+        <h4> People you may know </h4>
+        <p>
 
-    
+        </p>
+        <p>
+          Link user profile in here with ref.user.id+img+name+usrname
+        </p>
+        <p>
+          Link user profile in here with ref.user.id+img+name+usrname
+        </p>
+        <p>
+          Link user profile in here with ref.user.id+img+name+usrname
+        </p>
+        <p>
+          Link user profile in here with ref.user.id+img+name+usrname
+        </p>
+      </div>
+    </div>
+  </div>
   </main>
 
 
