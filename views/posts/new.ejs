@@ -3,11 +3,12 @@
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
+    <link rel="stylesheet" href="/styles/main.css"> 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>New Post</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+   <!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> --> <!-- FIXME: make sure only to use one css style lib or they will -->
     <style>
       div.preview-images > img {
         width: 50%;
@@ -19,63 +20,104 @@
       <body>
     
        <!-- SECTION: NAVBAR -->
-  <div class="ui secondary pointing menu">
-    <h1>Social Media App</h1>
-    <a class="item active" href="/">
-      Home
-    </a>
-    <!-- TODO: Messages Update in Version 1.0 -->
-    <a class="item" href="/comments/index">
-      Comments
-    </a>
-
-    <a class="item" href="/users/index">
-      Friends
-    </a>
-    <!-- NAVBAR RIGHT SIDE -->
-    <div class="right menu">
-        <a class="ui item">
-          <i class="plus circle icon" href="/posts/new"></i>
-          New Post
+       <div class="ui secondary pointing menu">
+        <h1>Social Media App</h1>
+        <a class="item active" href="/">
+          Home
         </a>
-      <a class="ui item" href="/users/show">
-        <i class="user circle icon "></i>
-        Profile
-    </a>
-      
-    </div>
-  </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 mt-3">
-          <h1>New Post</h1>
+        <a class="item" href="/users?userName=">
+          Friends
+        </a>
+    
+        <div class="mainPageSearchBar">
+          <form action="/users" method="GET">
+          <div class="ui action input">
+            <input type="text" name="userName" placeholder="Search Users...">
+    
+            <button class="ui button">Search</button>
+          </div>
+          </form>
+        </div>
+        <!-- NAVBAR RIGHT SIDE -->
+        <div class="right menu">
+          <!-- Notifications here -->
+          <div class="ui item">
+            <div class="ui dropdown">
+              <i class="plus heart icon"></i>
+              <div class="text">Notifications</div>
+              <i class="dropdown icon"></i>
+              <!--FIXME: Add Ajax here for notification storing -->
+              <div class="menu">
+                <div class="item">New</div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                <div class="item">
+                  <span class="description">Add timestamp of user interaction here</span>
+                  user.image + interpolate str val of user.userName here ...
+                </div>
+                </div>
+                  </div>
+                </div>
+            
+            <a class="ui item" href="/posts/new">
+              <i class="plus circle icon" ></i>
+              New Post
+            </a>
+          <a class="ui item" href="/users/<%= user.id %>">
+            <i class="user circle icon "></i>
+            Profile
+        </a>
+        
+          
+        </div>
+      </div>
 
-          <form class="mt-4"
-            action="/posts/<%= user.id %>/upload"
-            method="POST"
-            enctype="multipart/form-data"
-          >
+
+      <!-- SECTION : New Post content -->
+      <div class="newPostHeader">
+          <h1>Create A New Post</h1>
+      </div>
+    <div class="newPostPhotoContent">
+      <div class="ui card">
+      <div class="newPostPhotoContent"> 
+          <form class="mt-4" action="/posts/upload" method="POST" enctype="multipart/form-data">
           <h4>Post Photo</h4>
-            <div class="form-group">
-              <input type="file" name="image" id="input-files" class="form-control-file border" accept=".gif,.jpg,.jpeg,.png"
-              />
-              <h4>Post Description</h4>
-              <textarea name="description" rows="10" cols="40" wrap="hard" placeholder="Description"></textarea>
+          <div class="form-group">
+            <input type="file" name="image" id="input-files" class="form-control-file border" accept=".gif,.jpg,.jpeg,.png"
+            />
+          
+              <div class="newPostImage">
+                  <div class="preview-images"></div>
+              </div>
             </div>
+          
+          
+          <h4>Post Description</h4>
+          <div class="postDescription">
+          <div class="ui form">
+            <div class="field">
+              <textarea name="description" placeholder="Write a caption for your Post...."></textarea>
+            </div>
+          </div>
+        </div>
+        
+        </div>
             <div class="ui buttons">
               <button class="ui positive button btn btn-primary">Submit</button>
             </div>
           </form>
+         </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="preview-images"></div>
-        </div>
-      </div>
-    </div>
+      
+    
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script> <!-- FIXME: need to unuse bootstrap or will cause conflicts with other css libs -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       $(document).ready(function() {

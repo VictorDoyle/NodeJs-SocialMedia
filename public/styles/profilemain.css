@@ -39,8 +39,50 @@ body {
 
 .user__profilebio {
     display:flex;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 25%;
+    margin-right: 25%;
     padding-bottom: 1%;
     text-align: justify;
     }
+
+    .mainPageSearchBar {
+        display: flex;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+.settingsHeader {
+    padding-top: 15px;
+    padding-bottom: 40px;
+}
+
+.userSettingsContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.settingButtons {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    padding-top: 25px;
+}
+
+.settingsOptionsMenu {
+    display: flex;
+    justify-content: center;
+}
+
+.logoutButton {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.bookmark icon:hover {
+    opacity: 0.5;
+
+}

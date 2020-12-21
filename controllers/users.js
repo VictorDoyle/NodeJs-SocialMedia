@@ -21,20 +21,30 @@ const db = require('../models');
 /* ======== INDEX PAGE ======== */
 
 router.get("/", function(request, response){
-    db.User.find({}, function(error, allUsers){
+    const query = {
+        userName: {
+            $regex: request.query.userName,
+            $options: "i",
+        }
+    };
+    db.User.find(query, function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
 
         return response.render("users/index", context);
     });
 });
-/* FIXME: Need to fix index route. all users index is showing on /users/ */
 
-/* ======== NEW PAGE ======== */
+/* ======== HOME PAGE ======== */
 // NOTE: don't need a new route for users since we have auth register
-router.get("/new", function(request,response){
-    response.render("users/new");
+router.get("/", function(request,response){
+    db.User.findById(request.params.id, function(error, foundUser){
+        if(error) return response.send(error);
+            const context = {user: foundUser}; 
+    response.render("home", context);
 });
+});
+/* FIXME: Need to connect context to homepage route  */
 
 
 /* ======== SHOW PAGE ======== */
@@ -65,11 +75,21 @@ router.post("/", async function(request, response) {
 router.get("/:id/edit", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
         if(error) return response.send(error);
-         
+         /* FIXME: add AuthReq here comparing sessionID = urlID/userID  */
             const context = {user: foundUser};
             return response.render("users/edit", context);
         
     });
+});
+
+/* ======== USER SETTINGS PAGE */
+
+router.get("/:id/settings", function(request, response) {
+    db.User.findById(request.params.id, function(error, foundUser){
+        if(error) return response.send(error);
+            const context = {user: foundUser}; 
+            return response.render("settings", context);
+});
 });
 
 /* ======== UPDATE PAGE ======== */
@@ -92,13 +112,14 @@ router.put("/:id", function(request,response){
     );
 });
 
+
 /* ======== DELETE PAGE ======== */
 router.delete("/:id", function(request,response){
     db.User.findByIdAndDelete(request.params.id, function(error, deletedUser){
         if(error) {
             return response.send(error);
         } else {
-            return response.redirect("/users");
+            return response.redirect("/");
         }
     });
 });

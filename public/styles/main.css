@@ -1,3 +1,66 @@
 body {
     padding: 30px;
 }
+
+.mainPageSearchBar {
+    display:flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainPageLoginBox {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.registerPageContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    align-content: center;
+}
+.newPostHeader {
+    display: flex;
+    justify-content: center;
+}
+.newPostImage {
+    object-fit: cover;
+    /* FIXME: Need to force img stretch into a square at all times for posts */
+    width:230px;
+    height:230px;
+}
+
+.newPostPhotoContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.mainPageHeader {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+
+}
+.mainPageContent {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+.postDescription {
+    padding-bottom: 20px;
+}
+

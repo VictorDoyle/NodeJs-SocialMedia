@@ -4,6 +4,8 @@
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
+      <!-- Add custom css specific here -->
+      <link rel="stylesheet" href="/styles/mainindexpage.css"> 
   </head>
 
 
@@ -14,18 +16,48 @@
     <a class="item active" href="/">
       Home
     </a>
-    <!-- TODO: Messages Update in Version 1.0 -->
-    <a class="item" href="/comments/index">
-      Comments
-    </a>
-
-    <a class="item" href="/users/index">
+    <a class="item" href="/users?userName=">
       Friends
     </a>
+
+    <div class="mainPageSearchBar">
+      <form action="/users" method="GET">
+      <div class="ui action input">
+        <input type="text" name="userName" placeholder="Search Users...">
+
+        <button class="ui button">Search</button>
+      </div>
+      </form>
+    </div>
     <!-- NAVBAR RIGHT SIDE -->
     <div class="right menu">
-        <a class="ui item">
-          <i class="plus circle icon" href="/posts/new"></i>
+      <!-- Notifications here -->
+      <div class="ui item">
+        <div class="ui dropdown">
+          <i class="plus heart icon"></i>
+          <div class="text">Notifications</div>
+          <i class="dropdown icon"></i>
+          <!--FIXME: Add Ajax here for notification storing -->
+          <div class="menu">
+            <div class="item">New</div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            <div class="item">
+              <span class="description">Add timestamp of user interaction here</span>
+              user.image + interpolate str val of user.userName here ...
+            </div>
+            </div>
+              </div>
+            </div>
+        
+        <a class="ui item" href="/posts/new">
+          <i class="plus circle icon" ></i>
           New Post
         </a>
       <a class="ui item" href="/users/<%= user.id %>">
@@ -39,20 +71,75 @@
 
   <!-- SECTION: SHOW ALL USERS BELOW TAGGED BY /friends ID -->
   <main>
+    <div class="mainIndexContent">
   <h2> Friends List</h2>
     <% if(!users.length) { %>
       <p>There are no users in your friends list yet.</p>
     <% } %>
 
-    <ul>
+    <div class="ui middle aligned divided list">
       <% users.forEach(user => { %>
-      <li>
-        <a href="/users/<%= user._id %>"> <%= user.userName %> - <%= user.userName %></a>
-      </li>
+        <div class="item">
+          <div class="right floated content">
+            <div class="ui button">Add</div> <!-- add link to /users/user.id/followbuttonclick -->
+          </div>
+          <!-- <img class="ui avatar image" src="linkback to /users/user.photo"> -->
+          <div class="content presentUsers">
+            <a href="/users/<%= user._id %>"> <%= user.firstName %> - <%= user.userName %></a>
+          </div>
+        </div>
+        
+      
       <% }) %>
-    </ul>
+    </div>
+       
 
-    
+  </div>
+  <div class="rightIndexContent">
+    <!-- Right Index is User's recent activity -->
+    <div class="ui raised link card">
+      <div class="ui list">
+        <div class="item">
+          <img class="ui avatar image" src="https://picsum.photos/id/1005/300/300">
+          <div class="content">
+            <a class="header">User01</a>
+            <div class="description">is Watching <a><b>Arrested Development</b></a></div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="https://picsum.photos/id/1011/300/300">
+          <div class="content">
+            <a class="header">Lindsay</a>
+            <div class="description">Last seen online 10 hours ago.</div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="https://picsum.photos/id/1002/300/300">
+          <div class="content">
+            <a class="header">Veronika Ossi</a>
+            <div class="description">Commented on your <a><b>last post</b></a></div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="https://picsum.photos/id/1012/300/300">
+          <div class="content">
+            <a class="header">Mark Testerberg</a>
+            <div class="description">Commented on your <a><b>last post</b></a></div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="ui avatar image" src="https://picsum.photos/id/1013/300/300">
+          <div class="content">
+            <a class="header">James Finsta</a>
+            <div class="description">Commented on your <a><b>last post</b></a></div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  
   </main>
 
 

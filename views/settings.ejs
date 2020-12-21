@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Social Media App </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <!-- Add custom css specific here -->
     <link rel="stylesheet" href="/styles/profilemain.css"> 
+    <!-- Jquery in app.js and event listeners -->
+    <script src="/scripts/app.js" defer></script>
+   
+    <title>Social Media App </title>
   </head>
-
-
   <body>
-  <!-- SECTION: NAVBAR -->
+
+    <!-- IF USER IS LOGGED IN SHOW THIS NAVBAR VERSION -->
   <div class="ui secondary pointing menu">
     <h1>Social Media App</h1>
     <a class="item active" href="/">
@@ -68,79 +72,36 @@
     </div>
   </div>
 
-  <!-- SECTION: USER PROFILE EDIT PAGE BELOW -->
-  <!-- Add more setting changes for everything that fits Schema values -->
-  <div>
+<!-- SECTION: SETTINGS CONTENT -->
+
     <div class="settingsHeader"> 
-    <h4 class="ui horizontal divider header">
-      <i class="bar chart icon"></i>
-      Edit  <%= user.userName %>
-    </h4>
+        <h4 class="ui horizontal divider header">
+          <i class="bar chart icon"></i>
+        <%= user.userName %> 's Account Setting
+        </h4>
+      </div>
+      <div class="settingsOptionsMenu">
+<div class="ui secondary vertical pointing menu"> <!-- FIXME: use jquery onbutton click change class to item active. off click change back to item -->
+    <a class="item active"> 
+      Home
+    </a>
+    <a class="item"> <!-- TODO: Build out routes -->
+      Accessibility
+    </a>
+    <a class="item"> <!-- TODO: Build out routes -->
+        Change Language 
+      </a>
+      <a class="item"> <!-- TODO: Build out routes -->
+        Return to Account
+      </a>
+      <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+      <input class="item" type="submit" value="Delete Your Account" /> <!-- FIXME: after delete redirect to homepage ++ delete storedCookie-->
+    </form> <!-- FIXME: Need a window pop up to guarantee the user is SURE to delete account -->
   </div>
-    <div class="userSettingsContent">
-    <form action="/users/<%= user._id %>?_method=PUT" method="POST">
-    <table class="ui definition table">
-      <tbody>
-        <!-- <tr> 
-          <td class="two wide column">Profile Picture</td>
-          <td><input type="file" name="picture" value="<%= user.picture %>" accept=".gif,.jpg,.jpeg,.png"></td>
-        </tr> --> <!-- FIXME: Uncomment when picture posts available ++ upload synced -->
-        <tr>
-          <td>Username</td>
-          <td>
-            <div class="ui input">
-            <input type="text" name="userName" value="<%= user.userName %>" />
-          </div>
-          </td>
-        </tr>
-        <tr>
-          <td>User Biography</td>
-          <td>
-            <div class="ui input">
-              <input type="text" name="description" value="<%= user.description %>" maxlength="150" />
-            </div>
-            </td>
-        </tr>
-        <tr>
-          <td>Email Address</td>
-          <td>
-            <div class="ui input">
-              <input type="email" name="email" value="<%= user.email %>" />
-          </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Password</td>
-          <td>
-            <div class="ui input">
-            <input type="password" name="password" value="<%= user.password %>" />
-          </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-<div class="settingButtons">
-    <button input type="submit" value="Update" class="ui primary button">
-     Submit Changes
-   </button>
- </form>
-
- <button class="ui button" > 
-  <a href="javascript:javascript:history.go(-1)">Discard Changes <!-- FIXME: verify compatibility of return to bckpg with js -->
-  </a> 
- </button>    
-
 </div>
-
-<div class= "logoutButton"> 
-<form action="/logout?_method=DELETE" method="POST">
-  <input type="submit" value="Logout" class="ui secondary button">
-  </form>
-</div>
-  </main>
   
-     
+
+
 
 
 
@@ -150,3 +111,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
   </body>
 </html>
+
