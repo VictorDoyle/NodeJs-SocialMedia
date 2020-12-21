@@ -48,7 +48,14 @@ app.use(
 	  response.locals.user = request.session.currentUser; 
 	  console.log(session);
 	  next();
-  })
+  });
+
+  // querying user information
+  /* app.use(function (request, response, next) {
+	response.locals.user = request.session.currentUser; 
+	console.log(session);
+	next();
+}) */
 
 
 

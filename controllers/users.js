@@ -36,7 +36,6 @@ router.get("/", function(request, response){
 });
 
 /* ======== HOME PAGE ======== */
-// NOTE: don't need a new route for users since we have auth register
 router.get("/", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
         if(error) return response.send(error);
@@ -63,7 +62,7 @@ router.get("/:id", async function(request,response) {
 router.post("/", async function(request, response) {
     try {
         await db.User.create(request.body);
-        return response.redirect("/"); /* FIXME: changeback */
+        return response.redirect("/"); 
     } catch(error){
         return response.send(error);
     }
