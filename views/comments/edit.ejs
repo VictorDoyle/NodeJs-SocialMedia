@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <!-- Add custom css specific here -->
+    <link rel="stylesheet" href="/styles/main.css"> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body>
+    
+<div class="ui comments">
+    <h3 class="ui dividing header">Comments</h3>
+    <div class="comment">
+      <a class="avatar">
+        <img src=<%= Comment.user.picture %>>
+      </a>
+      <div class="content">
+        <a class="author"><%= Comment.user.username %></a>
+        <div class="text">
+          <p><%= Comment.description %></p>
+        </div>
+      </div>
+    </div>
+    <form class="ui reply form">
+        <div class="field">
+          <textarea name="description" placeholder="That's a super cool post!"></textarea>
+        </div>
+        <div class="ui blue labeled submit icon button">
+          <i class="icon edit"></i> Edit reply
+        </div>
+      </form>
+  </div>
+</body>
+</html>
