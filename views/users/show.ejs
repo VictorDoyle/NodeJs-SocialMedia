@@ -76,18 +76,32 @@
       <div class="sub header"></div>
     </h2>
   </div>
-
-  <div class="user__profilestats">
-    <div class="user__basics">
-    <h2><%= user.userName %></h2>
-    <a class="ui basic button" href="/users/<%= user._id %>/edit">
+<!-- FIXME: add if else stat here  -->
+<div class="user__profilestats">
+  <div class="user__basics">
+  <h2><%= profile.userName %></h2>
+      <% if(profile._id == user.id) { %>
+    <a class="ui basic button" href="/users/<%= profile._id %>/edit">
       <i class="icon user"></i>
       Edit Profile
     </a>
-    <a class="ui basic button" href="/users/<%= user._id %>/settings">
+    <a class="ui basic button" href="/users/<%= profile._id %>/settings">
       <i class="cogs icon"></i>
       Settings
     </a>
+    <% } else { %> 
+     
+      <div class="ui button" tabindex="0">
+        <i class="user circle outline icon"></i>
+        Follow
+      </div>
+
+      <div class="ui button">
+        <i class="comment alternate icon"></i>
+        Message
+      </div>
+    
+      <% } %>
       </div>
     
   <div class="ui large horizontal divided list">
@@ -95,7 +109,7 @@
       <i class="camera retro icon"></i>
       <div class="content">
         <div class="header">Posts</div>
-        <%= user.posts.length %>
+        <%= profile.posts.length %>
       </div>
     </div>
     <div class="item">
@@ -120,10 +134,10 @@
  <div class="user__profilebio">
   <div class="content">
     <h4 class="ui sub header">Bio</h4>
-    <div class="ui small feed">
+    <div class="ui large feed">
         <div class="content">
           <div class="summary">
-            <p><%= user.description%> </p>
+            <p><%= profile.description%> </p>
           </div>
         </div>
         <div class="ui divider"></div>
@@ -136,11 +150,12 @@
 
 <!-- User Profile populated Posts -->
 <div class="userprofile__posts">
-<div class="ui three column grid">
+  <div class="ui three column grid">
+  <% user.posts.forEach(post => { %>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1000/300/300">
+        <img class="ui medium rounded image" src="<%= posts.image %>" >
       </div>
       <div class="extra content">
         <span class="left floated like">
@@ -154,6 +169,7 @@
       </div>
     </div>
   </div>
+  <% }) %>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
