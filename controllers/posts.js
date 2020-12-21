@@ -4,15 +4,17 @@ const express = require("express");
 const router = express.Router();
 // database setup
 const db = require('../models');
+// multer setup
+const upload = require("multer")({dest: "../upload/"});
 // Rest Routes
 /* 
-  * Index - GET - /users  - Presentational - all users
-  * New - GET - /users/new  - Presentational Form - user signup page
-  * Show - GET - /users/:id  - Presentational - show your user page or other user profiles
-  * Create - Post - /users  - Functional - data receiving for route to create new user
-  * Edit - GET - /users/:id/edit  - Presentational Form - edit user profile with previous filled data
-  * Update - PUT - /users/:id  - Functional - update user profile with new changes
-  * Delete - DELETE - /users/:id  - Functional - Deletes user profile by id from request (FIXME: Make sure to make delete only available to your own profile)
+  * Index - GETs  - Presentational - all posts (feed)
+  * New - GET  - Presentational Form - post creation page
+  * Show - GET  - Presentational - show post "card"
+  * Create - Post  - Functional - data receiving for route to create new post
+  * Edit - GET  - Presentational Form - edit or delete post
+  * Update - PUT  - Functional - update postwith new changes
+  * Delete - DELETE  - Functional - Deletes post by id from request
 */
 
 /* ======== INDEX PAGE ======== */
@@ -28,28 +30,33 @@ router.get("/new", function(request,response){
     response.render("posts/new");
 });
 //Create/Upload post route
-router.post("/upload", function(request,response){
+router.post("/:id/upload", upload.single("image"), function(request,response){
+    console.log(request.files);
+    console.log(request.body);
+    request.body.user = request.params.id;
     db.Post.create(request.body, function(err, createdPost){
         if (err) return response.send(err);
         db.User.findById(createdPost.user).exec(function(err, foundUser){
             if (err) return response.send(err);
             foundUser.posts.push(createdPost);
-            createdPost.user.push(foundUser);
+            createdPost.user = foundUser;
             foundUser.save();
         })
+        const imageData = {
+            post: createdPost,
+            image: request.file.path, 
+            name: request.file.originalname,
+            //Check if working
+        };
+        db.Image.create(imageData, function(err, createdImage){
+                if (err) return response.send(err);
+                createdPost.image = createdImage;
+                createdPost.save();
+                    
+                return response.redirect("/");
+            })
+        });
     });
-    db.Image.create(request.body, function(err, createdImage){
-        if (err) return response.send(err);
-        db.Post.findById(createdImage.post).exec(function(err, foundPost){
-            if (err) return response.send(err);
-            foundPost.image.push(createdImage);
-            createdImage.post.push(foundPost);
-            foundPost.save();
-                
-            return response.redirect("/");
-        })
-    });
-});
 //Edit route
 router.get("/:id/edit", function(request,response){
     db.Post.findById(request.params.id, function(error, foundUser){
