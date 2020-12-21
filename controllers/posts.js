@@ -8,13 +8,13 @@ const db = require('../models');
 const upload = require("multer")({dest: "../upload/"});
 // Rest Routes
 /* 
-  * Index - GET - /users  - Presentational - all posts (feed)
-  * New - GET - /users/new  - Presentational Form - post creation page
-  * Show - GET - /users/:id  - Presentational - show post "card"
-  * Create - Post - /users  - Functional - data receiving for route to create new post
-  * Edit - GET - /users/:id/edit  - Presentational Form - edit or delete post
-  * Update - PUT - /users/:id  - Functional - update postwith new changes
-  * Delete - DELETE - /users/:id  - Functional - Deletes post by id from request
+  * Index - GETs  - Presentational - all posts (feed)
+  * New - GET  - Presentational Form - post creation page
+  * Show - GET  - Presentational - show post "card"
+  * Create - Post  - Functional - data receiving for route to create new post
+  * Edit - GET  - Presentational Form - edit or delete post
+  * Update - PUT  - Functional - update postwith new changes
+  * Delete - DELETE  - Functional - Deletes post by id from request
 */
 
 /* ======== INDEX PAGE ======== */

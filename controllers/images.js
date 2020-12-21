@@ -6,13 +6,13 @@ const router = express.Router();
 const db = require('../models');
 // Rest Routes
 /* 
-  * Index - GET - /users  - Presentational - all images
-  * New - GET - /users/new  - Presentational Form - not applicable - image is created through post new
-  * Show - GET - /users/:id  - Presentational - show your image or other images one by one
-  * Create - Post - /users  - Functional - data receiving for route to create new image
-  * Edit - GET - /users/:id/edit  - Presentational Form - edit image type - connected to post edit
-  * Update - PUT - /users/:id  - Functional - update image with changes
-  * Delete - DELETE - /users/:id  - Functional - Deletes image
+  * Index - GET - Presentational - all images
+  * New - GET  - Presentational Form - not applicable - image is created through post new
+  * Show - GET  - Presentational - show your image or other images one by one
+  * Create - Post - Functional - data receiving for route to create new image
+  * Edit - GET  - Presentational Form - edit image type - connected to post edit
+  * Update - PUT  - Functional - update image with changes
+  * Delete - DELETE - Functional - Deletes image
 */
 
 /* ======== INDEX PAGE ======== */
