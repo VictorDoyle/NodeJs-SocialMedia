@@ -20,11 +20,11 @@ const db = require('../models');
 /* ======== INDEX PAGE ======== */
 
 router.get("/", function(request, response){
-    db.User.find({}, function(error, allUsers){
+    db.Comment.find({}, function(error, allComments){
         if(error) return response.send(error);
-        const context = {users: allUsers};
+        const context = {comments: allComments};
 
-        return response.render("users/index", context);
+        return response.render("comments/index", context);
     });
 });
 /* FIXME: Need to fix index route. all users index is showing on /users/ */
@@ -32,17 +32,17 @@ router.get("/", function(request, response){
 /* ======== NEW PAGE ======== */
 // NOTE: don't need a new route for users since we have auth register
 router.get("/new", function(request,response){
-    response.render("users/new");
+    response.render("comments/new");
 });
 
 
 /* ======== SHOW PAGE ======== */
 router.get("/:id", async function(request,response) {
     try {
-        const foundUser = await db.User.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
+        const foundUser = await db.Comment.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
 
         const context = { user: foundUser};
-        return response.render("users/show", context);
+        return response.render("comments/show", context);
     } catch (error) {
         return response.send(error);
     }
@@ -51,7 +51,7 @@ router.get("/:id", async function(request,response) {
 /* ======== CREATE PAGE ======== */
 router.post("/", async function(request, response) {
     try {
-        await db.User.create(request.body);
+        await db.Comment.create(request.body);
         return response.redirect("/"); /* FIXME: changeback */
     } catch(error){
         return response.send(error);
