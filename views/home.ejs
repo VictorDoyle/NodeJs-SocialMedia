@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <!-- Add custom css specific here -->
     <link rel="stylesheet" href="/styles/main.css"> 
-    <!-- Jquery in app.js and event listeners -->
     <script src="/scripts/app.js" defer></script>
    
     <title>Social Media App </title>
@@ -73,7 +71,7 @@
     </div>
   </div>
 
- <!-- IF USER IS NOT LOGGED IN/NO ACCOUNT SHOW THIS NAVBAR VERSION -->
+ <!-- IF USER IS NOT LOGGED IN/NO ACCOUNT -->
 <% } else { %>
 <div class="ui secondary pointing menu">
     <h1>Social Media App</h1>
@@ -88,8 +86,7 @@
   <% } %>
   
 
-<!-- LOGIN OR REGISTER FIRST BEFORE MAINPAGE CONTENT SHOWS -->
-<!-- SECTION: LOGIN -->
+<!-- SECTION:  MAINPAGE CONTENT -->
 
 <% if (user) { %>
   <h2 class="mainPageHeader"> Welcome Back!</h2>

@@ -16,9 +16,5 @@ const UsersSchema = new mongoose.Schema(
     }
 )
 
-// We can make a separate Model for User with login info requirements and then make another
-// Model for "Profile" with description, posts, pictures, saved posts and accessibility.
-/* Added Model Export */
-
 const User = mongoose.model("User", UsersSchema);
 module.exports = User;

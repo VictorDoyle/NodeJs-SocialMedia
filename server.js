@@ -57,11 +57,20 @@ app.use(
 	next();
 }) */
 
+// authRequired for later use
+const authRequired = function(req,res,next){
+	if(req.session.currentUser){
+	  next();
+	} else {
+	  res.redirect("/login");
+	}
+  }
 
+// cookie delete on user delete
 
 //Controllers
 app.use("/",  controllers.auth);
-app.use("/users", controllers.users);
+app.use("/users", authRequired, controllers.users);
 // app.use("/comments", authRequired, controller.comments); //Uncomment after testing
 app.use("/posts",  controllers.posts);/*
 app.use("/images", authRequired,  controller.images); */

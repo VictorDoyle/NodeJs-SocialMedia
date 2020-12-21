@@ -36,6 +36,7 @@ router.get("/", function(request, response){
 });
 
 /* ======== HOME PAGE ======== */
+/* FIXME: Use mongodb. Aggregate method to 'populate' homepage with posts linked per user.id + timestamp */
 router.get("/", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
         if(error) return response.send(error);
@@ -43,7 +44,7 @@ router.get("/", function(request,response){
     response.render("home", context);
 });
 });
-/* FIXME: Need to connect context to homepage route  */
+
 
 
 /* ======== SHOW PAGE ======== */

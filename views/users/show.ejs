@@ -3,8 +3,6 @@
   <head>
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <!-- Add custom css specific here -->
-    <!-- NOTE: below is CSS file link src from the public folder -->
     <link rel="stylesheet" href="/styles/profilemain.css"> 
   </head>
 
@@ -70,16 +68,15 @@
   </div>
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
-  <div class="userprofile__main"> <!-- NOTE: class for css public/main.css -- edit this to change overall profile box for user -->
-  <!-- User Header Profile Info  -->
+  <div class="userprofile__main"> 
+
   <div class="user__profilephoto">
     <h2 class="ui header">
       <img class= "user_profilephoto_img" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
       <div class="sub header"></div>
     </h2>
   </div>
-  <!-- Number of Posts, Friends, Followers -->
-  <!-- FIXME: UI Items Style: none !!!! or numbers will be confusing for UI -->
+
   <div class="user__profilestats">
     <div class="user__basics">
     <h2><%= user.userName %></h2>
@@ -133,8 +130,6 @@
       </div>
     </div>
   </div>
-
-
 
 
 
