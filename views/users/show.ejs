@@ -3,8 +3,6 @@
   <head>
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
-    <!-- Add custom css specific here -->
-    <!-- NOTE: below is CSS file link src from the public folder -->
     <link rel="stylesheet" href="/styles/profilemain.css"> 
   </head>
 
@@ -70,27 +68,40 @@
   </div>
 
   <!-- SECTION: USER PROFILE PAGE CONTENT BELOW -->
-  <div class="userprofile__main"> <!-- NOTE: class for css public/main.css -- edit this to change overall profile box for user -->
-  <!-- User Header Profile Info  -->
+  <div class="userprofile__main"> 
+
   <div class="user__profilephoto">
     <h2 class="ui header">
       <img class= "user_profilephoto_img" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42">
       <div class="sub header"></div>
     </h2>
   </div>
-  <!-- Number of Posts, Friends, Followers -->
-  <!-- FIXME: UI Items Style: none !!!! or numbers will be confusing for UI -->
-  <div class="user__profilestats">
-    <div class="user__basics">
-    <h2><%= user.userName %></h2>
-    <a class="ui basic button" href="/users/<%= user._id %>/edit">
+<!-- FIXME: add if else stat here  -->
+<div class="user__profilestats">
+  <div class="user__basics">
+  <h2><%= profile.userName %></h2>
+      <% if(profile._id == user.id) { %>
+    <a class="ui basic button" href="/users/<%= profile._id %>/edit">
       <i class="icon user"></i>
       Edit Profile
     </a>
-    <a class="ui basic button" href="/users/<%= user._id %>/settings">
+    <a class="ui basic button" href="/users/<%= profile._id %>/settings">
       <i class="cogs icon"></i>
       Settings
     </a>
+    <% } else { %> 
+     
+      <div class="ui button" tabindex="0">
+        <i class="user circle outline icon"></i>
+        Follow
+      </div>
+
+      <div class="ui button">
+        <i class="comment alternate icon"></i>
+        Message
+      </div>
+    
+      <% } %>
       </div>
     
   <div class="ui large horizontal divided list">
@@ -98,7 +109,7 @@
       <i class="camera retro icon"></i>
       <div class="content">
         <div class="header">Posts</div>
-        <%= user.posts.length %>
+        <%= profile.posts.length %>
       </div>
     </div>
     <div class="item">
@@ -123,10 +134,10 @@
  <div class="user__profilebio">
   <div class="content">
     <h4 class="ui sub header">Bio</h4>
-    <div class="ui small feed">
+    <div class="ui large feed">
         <div class="content">
           <div class="summary">
-            <p><%= user.description%> </p>
+            <p><%= profile.description%> </p>
           </div>
         </div>
         <div class="ui divider"></div>
@@ -137,15 +148,14 @@
 
 
 
-
-
 <!-- User Profile populated Posts -->
 <div class="userprofile__posts">
-<div class="ui three column grid">
+  <div class="ui three column grid">
+  <% profile.posts.forEach(post => { %>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1000/300/300">
+        <img class="ui medium rounded image" src="<%= profile.posts.image %>" >
       </div>
       <div class="extra content">
         <span class="left floated like">
@@ -156,6 +166,25 @@
           Save 
           <i class="blue bookmark icon"></i>
         </span>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <!-- FIXME: placeholder for visuals -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <img class="ui medium rounded image" src="https://picsum.photos/id/1002/300/300">
+      </div>
+      <div class="extra content">
+        <span class="left floated like">
+          <i class="like icon"></i>
+          Like
+        </span>
+        <span class="right floated star">
+          Save 
+          <i class="blue bookmark icon"></i>
+          </span>
       </div>
     </div>
   </div>
@@ -179,111 +208,9 @@
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1003/300/300">
+        <img class="ui medium rounded image" src="https://picsum.photos/id/1002/300/300">
       </div>
       <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1004/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1005/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1006/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/999/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1008/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1009/300/300">
-      </div>
-     <div class="extra content">
         <span class="left floated like">
           <i class="like icon"></i>
           Like

@@ -5,7 +5,7 @@ const router = express.Router();
 // database setup
 const db = require('../models');
 // multer setup
-const upload = require("multer")({dest: "../upload/"});
+const upload = require("multer")({dest: "./upload/"});
 // Rest Routes
 /* 
   * Index - GETs  - Presentational - all posts (feed)

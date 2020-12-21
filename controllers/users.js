@@ -36,7 +36,7 @@ router.get("/", function(request, response){
 });
 
 /* ======== HOME PAGE ======== */
-// NOTE: don't need a new route for users since we have auth register
+/* FIXME: Use mongodb. Aggregate method to 'populate' homepage with posts linked per user.id + timestamp */
 router.get("/", function(request,response){
     db.User.findById(request.params.id, function(error, foundUser){
         if(error) return response.send(error);
@@ -44,15 +44,15 @@ router.get("/", function(request,response){
     response.render("home", context);
 });
 });
-/* FIXME: Need to connect context to homepage route  */
+
 
 
 /* ======== SHOW PAGE ======== */
 router.get("/:id", async function(request,response) {
     try {
-        const foundUser = await db.User.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
+        const foundUser = await db.User.findById(request.params.id).populate("posts");
 
-        const context = { user: foundUser};
+        const context = { profile: foundUser};
         return response.render("users/show", context);
     } catch (error) {
         return response.send(error);
@@ -63,7 +63,7 @@ router.get("/:id", async function(request,response) {
 router.post("/", async function(request, response) {
     try {
         await db.User.create(request.body);
-        return response.redirect("/"); /* FIXME: changeback */
+        return response.redirect("/"); 
     } catch(error){
         return response.send(error);
     }
@@ -119,6 +119,7 @@ router.delete("/:id", function(request,response){
         if(error) {
             return response.send(error);
         } else {
+            request.session.destroy();
             return response.redirect("/");
         }
     });
