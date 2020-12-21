@@ -44,7 +44,7 @@ router.post("/:id/upload", upload.single("image"), function(request,response){
         })
         const imageData = {
             post: createdPost,
-            image: request.file.image, //Check if working
+            image: request.file.filename, //Check if working
         };
         db.Image.create(imageData, function(err, createdImage){
                 if (err) return response.send(err);
