@@ -151,11 +151,11 @@
 <!-- User Profile populated Posts -->
 <div class="userprofile__posts">
   <div class="ui three column grid">
-  <% user.posts.forEach(post => { %>
+  <% profile.posts.forEach(post => { %>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
-        <img class="ui medium rounded image" src="<%= posts.image %>" >
+        <img class="ui medium rounded image" src="<%= profile.posts.image %>" >
       </div>
       <div class="extra content">
         <span class="left floated like">
