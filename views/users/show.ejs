@@ -92,7 +92,7 @@
     </a>
     <% } else { %> 
      
-      <div class="ui button" tabindex="0">
+      <div class="ui button" id="followButton" tabindex="0">
         <i class="user circle outline icon"></i>
         Follow
       </div>
@@ -123,8 +123,12 @@
     <div class="item">
       <i class="street view icon"></i>
       <div class="content">
-        <div class="header">Followers</div>
-        1050
+        <div class="header">
+          Followers
+        </div>
+        <div> 
+          <span id="followerCount"> 0 </span>
+        </div>
       </div>
     </div>
   </div>
@@ -175,57 +179,6 @@
   </div>
   <% }) %>
   <!-- FIXME: placeholder for visuals -->
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1002/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1002/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="image">
-        <img class="ui medium rounded image" src="https://picsum.photos/id/1002/300/300">
-      </div>
-      <div class="extra content">
-        <span class="left floated like">
-          <i class="like icon"></i>
-          Like
-        </span>
-        <span class="right floated star">
-          Save 
-          <i class="blue bookmark icon"></i>
-          </span>
-      </div>
-    </div>
-  </div>
 </div>
 </div>
 
