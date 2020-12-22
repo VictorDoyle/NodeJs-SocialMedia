@@ -1,3 +1,7 @@
 /node_modules
 package-lock.json
+<<<<<<< HEAD
 /upload
+=======
+.env
+>>>>>>> e2b10116b2a46b8ab4437f32f60b64c1fdc4df42

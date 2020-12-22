@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-
-mongoURL = "mongodb://localhost:27017/Insta"
+require("dotenv").config();
+mongoURL = process.env.MONGODB_URI || "mongodb://localhost:27017/Insta"
 
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,
