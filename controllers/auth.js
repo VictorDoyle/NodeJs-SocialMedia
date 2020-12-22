@@ -21,7 +21,6 @@ router.post("/register", async function(request, response){
 
     try {
         const foundUser = await db.User.findOne({email: request.body.email});
-        if(foundUser) return response.redirect("/login");
 
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(request.body.password, salt);
