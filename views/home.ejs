@@ -96,18 +96,20 @@
             <div class="ui card">
                 <div class="content">
                   <div class="right floated meta">placeholder time</div>
-                   <%= post.user.userName %>
+                  <a href="/users/<%= post.user.id %>"> <%= post.user.userName %> </a>
                 </div>
                 <div class="image">
                   <% console.log(post.image.image) %>
                   <img src="/<%=post.image.image %>" loading="lazy">
                 </div>
                 <div class="description">
+                  <div class="meta"> 
                     <p><%= post.description %></p>
                 </div>
+              </div>
                 <div class="content">
                   <span class="right floated">
-                    <i class="heart outline like icon"></i>
+                    <i class="heart like icon"></i>
                     <%= post.likes %>
                   </span>
                   <i class="comment icon"></i>
