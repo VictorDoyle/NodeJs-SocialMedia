@@ -9,7 +9,7 @@ const UsersSchema = new mongoose.Schema(
         password: {type: String, required: [true, "You must set a password"], minlength: 5},
         description: { type: String, required: [true, "You must provide a profile bio"], maxlength: [150, "You've exceeded the character limit! Bio's are up to 150 characters"]},
         posts: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
-        picture: { type: mongoose.Schema.Types.ObjectId, ref: "Image" },
+        picture: [{ type: mongoose.Schema.Types.ObjectId, ref: "Image" }],
         /* savedPosts: { type: mongoose.Schema.Types.ObjectId, ref: "Post" }, */ 
         // uncomment savedPosts after mvp
         //Put in accessibility under user as we decide specifics.

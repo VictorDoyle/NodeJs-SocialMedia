@@ -50,7 +50,7 @@ router.get("/", function(request,response){
 /* ======== SHOW PAGE ======== */
 router.get("/:id", async function(request,response) {
     try {
-        const foundUser = await db.User.findById(request.params.id).populate("posts");
+        const foundUser = await (await db.User.findById(request.params.id).populate({path: "posts", populate: {path:"image"}}));
 
         const context = { profile: foundUser};
         return response.render("users/show", context);

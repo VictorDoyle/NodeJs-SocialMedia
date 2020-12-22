@@ -18,10 +18,10 @@ const upload = require("multer")({dest: "./upload/"});
 */
 
 /* ======== INDEX PAGE ======== */
-router.get("/posts", function(request, response){
+router.get("/", function(request, response){
     db.Post.find({}, function(error, allPosts){
         if(error) return response.send(error);
-        const context = {users: allPosts};
+        const context = {posts: allPosts};
         return response.render("posts/index", context);
     });
 });
@@ -45,7 +45,6 @@ router.post("/:id/upload", upload.single("image"), function(request,response){
         const imageData = {
             post: createdPost,
             image: request.file.path, 
-            name: request.file.originalname,
             //Check if working
         };
         db.Image.create(imageData, function(err, createdImage){
@@ -82,7 +81,7 @@ router.put("/:id", function(request,response){
             if(error) {
                 return response.send(error);
             } else {
-                return response.redirect(`/users/${updatedUser._id}`);
+                return response.redirect('/');
             }
         }
     );
