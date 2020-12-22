@@ -2,7 +2,7 @@ console.log("sanity check")
 
 
 /* ========================== USER PROFILES ========================== */
-/* Follower profile number event listener */
+// SECTION: USER PROFILE FOLLOWERS
 
 /* follower button id # */
 /* followButton */
@@ -27,10 +27,16 @@ $("#followButton").on("click", function followCountToggle(){
 }
 });
 
+// SECTION: USER POSTS COMMENTS/LIKES
+
 
 
 
 /* ========================== NOTIFICATIONS ========================== */
+/* TODO: link AJAX XTML reqs via btn clcks */
+/* id for notification bar */
+// mainDropdownMenu
+
 
 
 /* ========================== HOME FEED ========================== */

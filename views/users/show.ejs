@@ -35,9 +35,9 @@
         <div class="ui dropdown">
           <i class="plus heart icon"></i>
           <div class="text">Notifications</div>
-          <i class="dropdown icon"></i>
+          <i class="dropdown icon "></i>
           <!--FIXME: Add Ajax here for notification storing -->
-          <div class="menu">
+          <div class="menu" id="mainDropdownMenu"> 
             <div class="item">New</div>
             <div class="item">
               <span class="description">Add timestamp of user interaction here</span>
@@ -166,10 +166,12 @@
         <img class="ui medium rounded image" src="/<%=post.image.image %>" >
       </div>
       <div class="extra content">
-        <span class="left floated like">
+        
+        <span class="left floated like" id="likeButton">
           <i class="like icon"></i>
-          Like
+          <%= post.likes %>
         </span>
+
         <span class="right floated star">
           Save 
           <i class="blue bookmark icon"></i>
