@@ -31,7 +31,7 @@ router.get("/new", function(request,response){
 });
 //Create/Upload post route
 router.post("/:id/upload", upload.single("image"), function(request,response){
-    console.log(request.files);
+    console.log(request.file);
     console.log(request.body);
     request.body.user = request.params.id;
     db.Post.create(request.body, function(err, createdPost){

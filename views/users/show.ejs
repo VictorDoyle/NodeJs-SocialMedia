@@ -4,6 +4,7 @@
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="/styles/profilemain.css"> 
+    <script src="/scripts/app.js" defer></script>
   </head>
 
 
@@ -129,8 +130,8 @@
   </div>
 </div>
 </div> 
-  <!-- User Name, Bio/Description, follow/unfollow button, message button -->
- <!-- FIXME: box styling/container for user description -->
+
+
  <div class="user__profilebio">
   <div class="content">
     <h4 class="ui sub header">Bio</h4>
@@ -151,11 +152,18 @@
 <!-- User Profile populated Posts -->
 <div class="userprofile__posts">
   <div class="ui three column grid">
+
+  
+
   <% profile.posts.forEach(post => { %>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
+<<<<<<< HEAD
         <img class="ui medium rounded image" src=<%= post.image.image %> >
+=======
+        <img class="ui medium rounded image" src="/<%=post.image.image %>" >
+>>>>>>> c5b687a53c8c5157e84b7121618bd543a4944039
       </div>
       <div class="extra content">
         <span class="left floated like">
