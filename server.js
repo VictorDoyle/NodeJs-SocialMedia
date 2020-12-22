@@ -81,8 +81,15 @@ app.use("/images", authRequired,  controller.images); */
 //Routes
 
 //Home Routes FIXME: change context
-app.get("/", function (request, response) {
-	response.render("home");
+app.get("/", async function (request, response) {
+    try {
+		const allPosts = await db.Post.find({}).populate({path: "images"} );
+
+        const context = {post: allPosts};
+        return response.render("posts/index", context);
+	} catch (error) {
+		return response.send(error);
+	}
 });
 // 404 route
 app.get(function (request, response){
