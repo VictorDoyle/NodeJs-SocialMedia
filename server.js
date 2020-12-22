@@ -7,8 +7,6 @@ const MongoStore = require("connect-mongo")(session);
 const db = require("./models");
 const controllers = require("./controllers");
 
-require("dotenv").config();
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 //App Configure
@@ -39,7 +37,7 @@ app.use(
 		  url: "mongodb://localhost:27017/Insta"
 		}),
 		// our secret is a signature in our sessions to verify that it is valid
-		secret: process.env.SECRET,
+		secret: "Make custom password here",
 		resave: false,
 		saveUninitialized: false,
 		cookie: {
@@ -87,21 +85,11 @@ app.get("/", async function (request, response) {
     try {
 		const allPosts = await db.Post.find().populate({ path:"user image", options:{sort:"-createdAt"}} );
         const context = { card: allPosts};
-        return response.render("posts/index", context);
+        return response.render("home.ejs", context);
 	} catch (error) {
 		return response.send(error);
 	}
 });
-/* router.get("/:id", async function(request,response) {
-    try {
-        const foundUser = await db.User.findById(request.params.id).populate({path: "posts", populate: {path:"image"}, options: {sort:"-createdAt"}} );
-
-        const context = { profile: foundUser};
-        return response.render("users/show", context);
-    } catch (error) {
-        return response.send(error);
-    }
-});*/
 // 404 route
 app.get(function (request, response){
 	response.send("404 the page is not found")

@@ -91,97 +91,37 @@
 <% if (user) { %>
   <h2 class="mainPageHeader"> Welcome Back!</h2>  
   <div class="mainPageContent">
-    <!--  TODO: showallposts by executing ----  user.forEach(post => -->
-  <div class="ui column grid">
-    <div class="column">
-      <div class="ui card">
-        <div class="content">
-          <div class="right floated meta">14h <!-- TODO: import user.post -- timestamp here --></div>
-          <img class="ui avatar image" src="https://picsum.photos/id/1003/300/300"> 
-        </div>
-        <div class="image">
-          <img src= "https://picsum.photos/id/1000/300/300">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart like icon"></i>
-           <!-- TODO: Add user.post.likes here -->
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        
-        <div class="extra content">
-          <div class="description">
-            <p>Here is where the post.description from the user would show up</p>
-          </div>
-          </div>
-          <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-      <div class="ui card">
-        <div class="content">
-          <div class="right floated meta">20h <!-- TODO: import user.post -- timestamp here --></div>
-          <img class="ui avatar image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42"> Darlene
-        </div>
-        <div class="image">
-          <img src= "https://picsum.photos/id/1003/300/300">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart like icon"></i>
-           <!-- TODO: Add user.post.likes here -->
-          </span>
-          <i class="comment icon"></i>
-          No comments
-        </div>
-        <div class="extra content">
-          <div class="description">
-            <p>Here is where the post.description from the user would show up</p>
-          </div>
-          </div>
-          <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-      <div class="ui card">
-        <div class="content">
-          <div class="right floated meta">24h <!-- TODO: import user.post -- timestamp here --></div>
-          <img class="ui avatar image" src="https://scontent-lga3-1.cdninstagram.com/v/t51.2885-15/e35/123138843_1067565367036684_2235957244731016243_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=104&_nc_ohc=5AkmP-MEUCMAX9wiB3i&tp=1&oh=211571bff02a9d9f3225e5930f085fca&oe=6005AE42"> Whiterose
-        </div>
-        <div class="image">
-          <img src= "https://picsum.photos/id/1005/300/300">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart like icon"></i>
-           <!-- TODO: Add user.post.likes here -->
-          </span>
-          <i class="comment icon"></i>
-          55 comments
-        </div>
-        <div class="extra content">
-          <div class="description">
-            <p>Here is where the post.description from the user would show up</p>
-          </div>
-          </div>
-          <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    </div>
+    <ul>
+        <% card.forEach(post => { %>
+            <div class="ui card">
+                <div class="content">
+                  <div class="right floated meta">placeholder time</div>
+                   <%= post.user.userName %>
+                </div>
+                <div class="image">
+                  <% console.log(post.image.image) %>
+                  <img src="/<%=post.image.image %>" loading="lazy">
+                </div>
+                <div class="description">
+                    <p><%= post.description %></p>
+                </div>
+                <div class="content">
+                  <span class="right floated">
+                    <i class="heart outline like icon"></i>
+                    <%= post.likes %>
+                  </span>
+                  <i class="comment icon"></i>
+                  <%= post.comments.length %> comments
+                </div>
+                <div class="extra content">
+                  <div class="ui large transparent left icon input">
+                      <%= post.comments %>
+                    <input type="text" placeholder="Add Comment...">
+                  </div>
+                </div>
+              </div>
+        <% }); %>
+    </ul>
   </div>
 
 <!-- SECTION: MAINPAGE CONTENT DISPLAY FOR USERS IS BELOW -->
