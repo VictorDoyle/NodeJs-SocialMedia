@@ -5,22 +5,27 @@ console.log("sanity check")
 /* Follower profile number event listener */
 
 /* follower button id # */
-followButton
+/* followButton */
 /* follower value id */
-followerCount
+/* followerCount */
 
 /*  Follow a user event listener */
-let followerTotal = 0;
-$("#followButton").on("click", function followCountAdd(){ 
-  followerTotal++; 
+let followerTotal = 1;
+
+$("#followButton").on("click", function followCountToggle(){ 
     $("#followerCount").text(`${followerTotal}`); 
-    $("#followButton").off("click"); /* limit to follow once */
-    /* change follow button to "unfollow" */
-    $("#followButton").addClass("ui basic button");
-    $("#followButton").text("Unfollow");
+    $("#followButton").toggleClass("basic")
+  if ( $("#followButton").hasClass("basic")) {
+      $("#followButton").text("Unfollow");
+      followerTotal--;
+} else {
+   $("#followButton").text("Follow");
+   $("#followButton").append("<i class=user circle outline icon></i>");
+   followerTotal++;
+}
 });
 
-/* Unfollow */
+
 
 
 /* ========================== NOTIFICATIONS ========================== */
