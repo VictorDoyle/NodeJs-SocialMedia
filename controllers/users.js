@@ -50,9 +50,9 @@ router.get("/", function(request,response){
 /* ======== SHOW PAGE ======== */
 router.get("/:id", async function(request,response) {
     try {
-        const foundUser = await db.User.findById(request.params.id)/* .populate("posts") */; //FIXME: recomment in pop. posts after route setup
+        const foundUser = await db.User.findById(request.params.id).populate({path: "posts", populate: {path:"image"}, options: {sort:"-createdAt"}} );
 
-        const context = { user: foundUser};
+        const context = { profile: foundUser};
         return response.render("users/show", context);
     } catch (error) {
         return response.send(error);
@@ -119,6 +119,7 @@ router.delete("/:id", function(request,response){
         if(error) {
             return response.send(error);
         } else {
+            request.session.destroy();
             return response.redirect("/");
         }
     });

@@ -18,6 +18,9 @@ app.use(methodOverride("_method"));
 /* access internal modules for custom CSS styling and app.js in public folder */
 app.use(express.static(__dirname +'/public'));
 
+/* upload file access for photos */
+app.use("/upload",express.static(__dirname +'/upload'));
+
 //Logger
 app.use(function (request, response, next) {
 	console.log(request.url, request.method);
@@ -46,7 +49,7 @@ app.use(
   // user authentication
   app.use(function (request, response, next) {
 	  response.locals.user = request.session.currentUser; 
-	  console.log(session);
+	  console.log(request.session);
 	  next();
   });
 

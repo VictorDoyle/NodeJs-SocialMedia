@@ -79,6 +79,7 @@
       </div>
 
 
+
       <!-- SECTION : New Post content -->
       <div class="newPostHeader">
           <h1>Create A New Post</h1>
@@ -86,7 +87,8 @@
     <div class="newPostPhotoContent">
       <div class="ui card">
       <div class="newPostPhotoContent"> 
-          <form class="mt-4" action="/posts/upload" method="POST" enctype="multipart/form-data">
+         <form class="mt-4" action="/posts/<%= user.id %>/upload" method="POST" enctype="multipart/form-data">
+
           <h4>Post Photo</h4>
           <div class="form-group">
             <input type="file" name="image" id="input-files" class="form-control-file border" accept=".gif,.jpg,.jpeg,.png"
