@@ -65,14 +65,15 @@
   </div>
 </div>
     <ul>
-        <% posts.forEach(post => { %>
+        <% card.forEach(post => { %>
             <div class="ui card">
                 <div class="content">
                   <div class="right floated meta">placeholder time</div>
-                  <img class="ui avatar image" src=<%= user.picture %>> <%= user.userName %>
+                   <%= post.user.userName %>
                 </div>
                 <div class="image">
-                  <img src=<%= post.image %> loading="lazy">
+                  <% console.log(post.image.image) %>
+                  <img src="/<%=post.image.image %>" loading="lazy">
                 </div>
                 <div class="description">
                     <p><%= post.description %></p>
@@ -83,7 +84,7 @@
                     <%= post.likes %>
                   </span>
                   <i class="comment icon"></i>
-                  0 comments
+                  <%= post.comments.length %> comments
                 </div>
                 <div class="extra content">
                   <div class="ui large transparent left icon input">

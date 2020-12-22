@@ -83,14 +83,23 @@ app.use("/images", authRequired,  controller.images); */
 //Home Routes FIXME: change context
 app.get("/", async function (request, response) {
     try {
-		const allPosts = await db.Post.find({}).populate({path: "images"} );
-
-        const context = {post: allPosts};
+		const allPosts = await db.Post.find().populate({ path:"user image", options:{sort:"-createdAt"}} );
+        const context = { card: allPosts};
         return response.render("posts/index", context);
 	} catch (error) {
 		return response.send(error);
 	}
 });
+/* router.get("/:id", async function(request,response) {
+    try {
+        const foundUser = await db.User.findById(request.params.id).populate({path: "posts", populate: {path:"image"}, options: {sort:"-createdAt"}} );
+
+        const context = { profile: foundUser};
+        return response.render("users/show", context);
+    } catch (error) {
+        return response.send(error);
+    }
+});*/
 // 404 route
 app.get(function (request, response){
 	response.send("404 the page is not found")
