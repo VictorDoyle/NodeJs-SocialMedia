@@ -95,8 +95,9 @@
         <% card.forEach(post => { %>
             <div class="ui card">
                 <div class="content">
-                  <div class="right floated meta">placeholder time</div>
-                   <%= post.user.userName %>
+                  <%= post.user.userName %> <br>
+                  <% date = new Date(post.createdAt) %>
+                  <div class="offset right floated meta"><%= date.toDateString() %></div>
                 </div>
                 <div class="image">
                   <% console.log(post.image.image) %>
