@@ -15,12 +15,14 @@ let followerTotal = 1;
 $("#followButton").on("click", function followCountToggle(){ 
     $("#followerCount").text(`${followerTotal}`); 
     $("#followButton").toggleClass("basic")
+    const $followIcon = (`<i class="user circle outline icon"></i>`);
   if ( $("#followButton").hasClass("basic")) {
       $("#followButton").text("Unfollow");
+      $("#followButton").prepend($followIcon);
       followerTotal--;
 } else {
    $("#followButton").text("Follow");
-   $("#followButton").append("<i class=user circle outline icon></i>");
+   $("#followButton").prepend($followIcon);
    followerTotal++;
 }
 });
