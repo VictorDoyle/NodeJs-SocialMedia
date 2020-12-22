@@ -35,7 +35,9 @@ body {
     width:230px;
     height:230px;
 }
-
+.wide {
+    min-width: 35em;
+}
 .newPostPhotoContent {
     display: flex;
     justify-content: center;
