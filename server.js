@@ -7,8 +7,10 @@ const MongoStore = require("connect-mongo")(session);
 const db = require("./models");
 const controllers = require("./controllers");
 
+require("dotenv").config();
+
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 //App Configure
 app.set("view engine", "ejs");
 
@@ -37,7 +39,7 @@ app.use(
 		  url: "mongodb://localhost:27017/Insta"
 		}),
 		// our secret is a signature in our sessions to verify that it is valid
-		secret: "Make custom password here",
+		secret: process.env.SECRET,
 		resave: false,
 		saveUninitialized: false,
 		cookie: {
