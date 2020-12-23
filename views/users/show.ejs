@@ -4,6 +4,7 @@
     <title>Social Media App </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
     <link rel="stylesheet" href="/styles/profilemain.css"> 
+    <link rel="stylesheet" href="/styles/main.css"> 
     <script src="/scripts/app.js" defer></script>
   </head>
 
@@ -12,7 +13,7 @@
   <!-- SECTION: NAVBAR -->
   <div class="ui secondary pointing menu">
     <h1>Social Media App</h1>
-    <a class="item active" href="/">
+    <a class="item" href="/">
       Home
     </a>
     <a class="item" href="/users?userName=">
@@ -59,7 +60,7 @@
           <i class="plus circle icon" ></i>
           New Post
         </a>
-      <a class="ui item" href="/users/<%= user.id %>">
+      <a class="ui item active" href="/users/<%= user.id %>">
         <i class="user circle icon "></i>
         Profile
     </a>

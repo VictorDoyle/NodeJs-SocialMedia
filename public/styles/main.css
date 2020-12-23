@@ -68,3 +68,13 @@ body {
 .offset {
     margin-top: -1.35em;
 }
+.plus.heart {
+    color: red;
+}
+.plus.circle {
+    color: teal;
+}
+.ui.button {
+    background-color: teal;
+    color: white;
+}
