@@ -34,7 +34,15 @@ $("#followButton").on("click", function followCountToggle(){
 /* like value id */
 /*  post.likes */
 
-$("#likeButton").on("click", function addLikes() {});
+
+
+$("#likeButton").on("click", function addLikes() {
+  likes += 1;
+  if (likes = +1) {
+    
+  }
+  console.log(likes)
+});
 
 
 /* ========================== NOTIFICATIONS ========================== */
@@ -43,8 +51,9 @@ $("#likeButton").on("click", function addLikes() {});
 // mainDropdownMenu
 
 
-
 /* ========================== HOME FEED ========================== */
+// COMMENTS
 
+$("#comments")
 
 /* ========================== SETTINGS ========================== */

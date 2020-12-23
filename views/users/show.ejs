@@ -117,7 +117,7 @@
       <i class="users icon"></i>
       <div class="content">
         <div class="header">Following</div>
-        30000
+        0
       </div>
     </div>
     <div class="item">
@@ -127,7 +127,9 @@
           Followers
         </div>
         <div> 
-          <span id="followerCount"> 0 </span>
+          <span id="followerCount"> 
+            0
+           </span>
         </div>
       </div>
     </div>
@@ -170,7 +172,10 @@
         
         <span class="left floated like" id="likeButton">
           <i class="like icon"></i>
-          <%= post.likes %>
+          <script>
+            let likes = <%= post.likes %>;
+            </script>
+            <%= post.likes %>
         </span>
 
         <span class="right floated star">
