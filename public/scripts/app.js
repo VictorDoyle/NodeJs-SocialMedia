@@ -15,9 +15,9 @@ let followerTotal = 1;
 
 $("#followButton").on("click", function followCountToggle(){ 
     $("#followerCount").text(`${followerTotal}`); 
-    $("#followButton").toggleClass("basic")
+    $("#followButton").toggleClass("basic navy")
     const $followIcon = (`<i class="user circle outline icon"></i>`);
-  if ( $("#followButton").hasClass("basic")) {
+  if ( $("#followButton").hasClass("basic navy")) {
       $("#followButton").text("Unfollow");
       $("#followButton").prepend($followIcon);
       followerTotal--;
