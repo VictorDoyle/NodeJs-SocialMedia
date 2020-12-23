@@ -37,8 +37,8 @@ $("#followButton").on("click", function followCountToggle(){
 
 
 $("#likeButton").on("click", function addLikes() {
-  likes += 1;
-  if (likes = +1) {
+  likes ++;
+  if (likes++) {
     
   }
   console.log(likes)
@@ -54,6 +54,6 @@ $("#likeButton").on("click", function addLikes() {
 /* ========================== HOME FEED ========================== */
 // COMMENTS
 
-$("#comments")
+$("#postComments").on
 
 /* ========================== SETTINGS ========================== */
