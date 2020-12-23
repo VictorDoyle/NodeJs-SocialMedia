@@ -85,7 +85,7 @@ app.use("/images", authRequired,  controller.images); */
 app.get("/", async function (request, response) {
     try {
 		const allPosts = await db.Post.find().populate({ path:"user image", options:{sort:"-createdAt"}} );
-        const context = { card: allPosts};
+        const context = {card: allPosts};
         return response.render("home.ejs", context);
 	} catch (error) {
 		return response.send(error);
