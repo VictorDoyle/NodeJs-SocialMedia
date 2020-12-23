@@ -34,7 +34,7 @@ $("#followButton").on("click", function followCountToggle(){
 /* like value id */
 /*  post.likes */
 
-
+                 
 
 $("#likeButton").on("click", function addLikes() {
 

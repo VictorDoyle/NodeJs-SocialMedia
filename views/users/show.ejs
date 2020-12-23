@@ -77,6 +77,7 @@
   <div class="userprofile__main"> 
 
   <div class="user__profilephoto">
+    <img class="ui medium circular image" src="https://picsum.photos/300/300" style="max-width: 200px">
     <h2 class="ui header">
       <div class="sub header"></div>
     </h2>
@@ -96,13 +97,13 @@
     </a>
     <% } else { %> 
      
-      <div class="ui button" id="followButton" tabindex="0">
-        <i class="user circle outline icon"></i>
+      <div class="ui button" id="followButton" tabindex="0" style="background-color: skyblue; color: navy;">
+        <i class="user circle outline icon" style="color: navy"></i>
         Follow
       </div>
 
-      <div class="ui button">
-        <i class="comment alternate icon"></i>
+      <div class="ui button" style="background-color: skyblue; color: navy;">
+        <i class="comment alternate icon" style="color: navy"></i>
         Message
       </div>
     
@@ -166,7 +167,6 @@
   
 
   <% profile.posts.forEach(post => { %>
-    <a href="/"> </a>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
@@ -178,7 +178,7 @@
           <i id="heartIcon"class="like icon"></i>
           <span id="likeCounter">
           <script>
-            let likes = <%= post.likes %>
+            let likes =  post.likes;
             </script>
             <%= post.likes %>
           </span>

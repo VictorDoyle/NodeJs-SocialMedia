@@ -79,7 +79,7 @@
     <div class="mainIndexContent">
   <h2> Friends List</h2>
     <% if(!users.length) { %>
-      <p>There are no users in your friends list yet.</p>
+      <p>Looks like there weren't any good matches for your search...</p>
     <% } %>
 
     <div class="ui middle aligned divided list">
@@ -93,7 +93,9 @@
             </div>
           </div>
           <div class="content presentUsers">
-            <a href="/users/<%= user._id %>"> <%= user.firstName %> - <%= user.userName %></a>
+            <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
+            <% randomNum = randomBoi.toString(); %>
+            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>"> <%= user.firstName %> - <%= user.userName %></a>
           </div>
         </div>
         
@@ -109,11 +111,11 @@
       <% users.forEach(user => { %>
       <div class="ui list">
         <div class="item">
-          <img class="ui avatar image" src="https://picsum.photos/id/1005/300/300">
           <div class="content">
-            <a href="/users/<%= user._id %>"> <%= user.userName %></a>
-            <div class="description">
-              See their last post <%= user.posts[0]%>
+            <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
+            <% randomNum = randomBoi.toString(); %>
+            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>">
+            <div class="description"> last posted <%= user.posts[0]%></div>
           </div>
         </div>
       </div>
