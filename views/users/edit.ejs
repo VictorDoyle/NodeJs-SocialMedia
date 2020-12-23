@@ -12,7 +12,9 @@
   <body>
   <!-- SECTION: NAVBAR -->
   <div class="ui secondary pointing menu">
-    <h1>Social Media App</h1>
+    <a href="/"class="item"> 
+      <h1>Social Media App</h1>
+      <a>
     <a class="item active" href="/">
       <i class="home icon"></i>
       Home
@@ -129,8 +131,8 @@
    </button>
  </form>
 
- <button class="ui button" style="background-color: skyblue;"> 
-  <a href="javascript:javascript:history.go(-1)">Discard Changes <!-- FIXME: verify compatibility of return to bckpg with js -->
+ <button class="ui button" > 
+  <a class="item" href="/users/<%= user._id %>"> Discard Changes
   </a> 
  </button>    
 
