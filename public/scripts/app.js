@@ -38,14 +38,14 @@ $("#followButton").on("click", function followCountToggle(){
 
 $("#likeButton").on("click", function addLikes() {
 
- /*  $("#likeCounter").text(likes).val(likes);
-  $("#heartIcon").toggleClass("red") */
+  $("#likeCounter").text(likes).val(likes);
+  $("#heartIcon").toggleClass("red")
   if ( $("#heartIcon").hasClass("red")) {
-    $("#likeCounter").text(likes).val(likes);
+    $("#likeCounter").text(likes);
     $("#heartIcon").toggleClass("red")
     likes--;
 } else {
- $("#likeCounter").text(likes).val(likes);
+ $("#likeCounter").text(likes);
  likes++;
  $("#heartIcon").toggleClass("red")
 }
@@ -66,6 +66,5 @@ $("#likeButton").on("click", function addLikes() {
 /* ========================== HOME FEED ========================== */
 // COMMENTS
 
-$("#postComments").on
 
 /* ========================== SETTINGS ========================== */
