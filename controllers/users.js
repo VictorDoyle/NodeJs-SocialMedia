@@ -27,12 +27,12 @@ router.get("/", function(request, response){
             $options: "i",
         }
     };
-    db.User.find(query, function(error, allUsers){
+    db.User.find(query, async function(error, allUsers){
         if(error) return response.send(error);
         const context = {users: allUsers};
 
         return response.render("users/index", context);
-    });
+    }).populate({path: "posts"});
 });
 
 /* ======== HOME PAGE ======== */
