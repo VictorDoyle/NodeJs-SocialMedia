@@ -37,12 +37,24 @@ $("#followButton").on("click", function followCountToggle(){
 
 
 $("#likeButton").on("click", function addLikes() {
-  likes ++;
-  if (likes++) { 
-    
-  }
+
+ /*  $("#likeCounter").text(likes).val(likes);
+  $("#heartIcon").toggleClass("red") */
+  if ( $("#heartIcon").hasClass("red")) {
+    $("#likeCounter").text(likes).val(likes);
+    $("#heartIcon").toggleClass("red")
+    likes--;
+} else {
+ $("#likeCounter").text(likes).val(likes);
+ likes++;
+ $("#heartIcon").toggleClass("red")
+}
+
   console.log(likes)
-});
+}); 
+
+
+
 
 
 /* ========================== NOTIFICATIONS ========================== */
