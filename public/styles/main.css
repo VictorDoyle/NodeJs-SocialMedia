@@ -74,7 +74,13 @@ body {
 .plus.circle {
     color: teal;
 }
+.user.circle {
+    color: teal;
+}
 .ui.button {
     background-color: teal;
     color: white;
+}
+.users.icon {
+    color: rgb(0, 102, 102);
 }
