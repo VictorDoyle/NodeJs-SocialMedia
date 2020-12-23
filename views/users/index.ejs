@@ -86,8 +86,8 @@
       <% users.forEach(user => { %>
         <div class="item">
           <div class="right floated content">
-            <div class="ui button">
-              <a href="/users/<%= user._id %>">
+            <div class="ui button" style="color: white">
+              <a href="/users/<%= user._id %>" style="color: white">
               Add
             </a>
             </div>
@@ -114,8 +114,9 @@
           <div class="content">
             <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
             <% randomNum = randomBoi.toString(); %>
-            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>">
-            <div class="description"> last posted <%= user.posts[0]%></div>
+            <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <a href="/users/<%= user._id %>"> <%= user.userName %></a>
+            <% date = user.posts[0].createdAt.toDateString();%>
+            <div class="description"> last posted <%= date%></div>
           </div>
         </div>
       </div>
