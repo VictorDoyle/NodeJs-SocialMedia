@@ -38,7 +38,7 @@ $("#followButton").on("click", function followCountToggle(){
 
 $("#likeButton").on("click", function addLikes() {
   likes ++;
-  if (likes++) {
+  if (likes++) { 
     
   }
   console.log(likes)

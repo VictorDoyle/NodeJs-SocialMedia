@@ -10,12 +10,14 @@
 </head>
 <body>
      <!-- SECTION: NAVBAR -->
-     <div class="ui secondary pointing menu">
+     <div class="ui secondary pointing menu grey">
       <h1>Social Media App</h1>
       <a class="item active" href="/">
+        <i class="home icon"></i>
         Home
       </a>
       <a class="item" href="/users?userName=">
+        <i class="users icon"></i>
         Friends
       </a>
   
@@ -70,31 +72,33 @@
 
     <!-- SECTION: Posts Show -->
       
-     <div class="ui card">
-        <div class="content">
-          <div class="right floated meta">placeholder time</div>
-          <img class="ui avatar image" src=<%= User.picture %>> <%= User.userName %>
+    <div class="ui card wide">
+      <div class="content">
+        <%= post.user.userName %> <br>
+        <% date = new Date(post.createdAt) %>
+        <div class="offset right floated meta"><%= date.toDateString() %></div>
+      </div>
+      <div class="image">
+        <% console.log(post.image.image) %>
+        <img src="/<%=post.image.image %>" loading="lazy">
+      </div>
+      <div class="description">
+          <p><%= post.description %></p>
+      </div>
+      <div class="content">
+        <span class="right floated">
+          <i class="heart outline like icon"></i>
+          <%= post.likes %>
+        </span>
+        <i class="comment icon"></i>
+        <%= post.comments.length %> comments
+      </div>
+      <div class="extra content">
+        <div class="ui large transparent left icon input">
+            <%= post.comments %>
+          <input type="text" placeholder="Add Comment...">
         </div>
-        <div class="image">
-          <img src=<%= Post.image %> loading="lazy">
-        </div>
-        <div class="description">
-            <p><%= Post.description %></p>
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            <%= Post.likes %>
-          </span>
-          <i class="comment icon"></i>
-          <%= Post.comments.length %> comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-              <%= Post.comments %>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div> 
+      </div>
+    </div>
       
 </body>

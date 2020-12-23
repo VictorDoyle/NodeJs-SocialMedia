@@ -35,7 +35,9 @@ body {
     width:230px;
     height:230px;
 }
-
+.wide {
+    min-width: 35em;
+}
 .newPostPhotoContent {
     display: flex;
     justify-content: center;
@@ -63,4 +65,22 @@ body {
 .postDescription {
     padding-bottom: 20px;
 }
-
+.offset {
+    margin-top: -1.35em;
+}
+.plus.heart {
+    color: red;
+}
+.plus.circle {
+    color: teal;
+}
+.user.circle {
+    color: teal;
+}
+.ui.button {
+    background-color: teal;
+    color: white;
+}
+.users.icon {
+    color: rgb(0, 102, 102);
+}

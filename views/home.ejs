@@ -16,9 +16,11 @@
   <div class="ui secondary pointing menu">
     <h1>Social Media App</h1>
     <a class="item active" href="/">
+      <i class="home icon"></i>
       Home
     </a>
     <a class="item" href="/users?userName=">
+      <i class="users icon"></i>
       Friends
     </a>
 
@@ -73,7 +75,7 @@
 
  <!-- IF USER IS NOT LOGGED IN/NO ACCOUNT -->
 <% } else { %>
-<div class="ui secondary pointing menu">
+<div class="ui secondary pointing menu grey">
     <h1>Social Media App</h1>
   <div class="right menu">
     <a class="ui item" href="/register">
@@ -93,10 +95,16 @@
   <div class="mainPageContent">
     <ul>
         <% card.forEach(post => { %>
-            <div class="ui card">
+            <div class="ui card wide">
                 <div class="content">
-                  <div class="right floated meta">placeholder time</div>
-                  <a href="/users/<%= post.user.id %>"> <img src="/<%= user.picture %>"> <%= post.user.userName %> </a>
+                  <div class=" ui avatar image"> 
+                    <img src="<%= post.user.image %>" loading="lazy">
+                  </div>
+                  <div class="right floated meta"></div>
+                  <a href="/users/<%= post.user.id %>"> <%= post.user.userName %> </a>
+                  <% date = new Date(post.createdAt) %>
+                  <div class="right floated meta"><%= date.toDateString() %></div>
+
                 </div>
                 <div class="image">
                   <img src="/<%=post.image.image %>" loading="lazy">

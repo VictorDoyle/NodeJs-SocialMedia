@@ -58,11 +58,11 @@ router.post("/:id/upload", upload.single("image"), function(request,response){
     });
 //Edit route
 router.get("/:id/edit", function(request,response){
-    db.Post.findById(request.params.id, function(error, foundUser){
+    db.Post.findById(request.params.id, function(error, foundPost){
         if(error) {
             return response.render(error);
         } else {
-            const context = {users: foundUser};
+            const context = {card: foundPost};
             return response.render("posts/edit", context);
         }
     });
@@ -77,7 +77,7 @@ router.put("/:id", function(request,response){
             }
         },
         { new: true},
-        function(error,updatedUser){
+        function(error,updatedPost){
             if(error) {
                 return response.send(error);
             } else {
@@ -85,6 +85,17 @@ router.put("/:id", function(request,response){
             }
         }
     );
+});
+//Show route
+router.get("/:id", function(request,response){
+    db.Post.findById(request.param.id, function(error, foundPost){
+        if(error) {
+            return response.render(error);
+        } else {
+            const context = {card: foundPost};
+            return response.render("posts/show", context);
+        }
+    });
 });
 //Delete route
 router.delete("/:id", function(request,response){
