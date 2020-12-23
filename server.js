@@ -34,7 +34,7 @@ app.use(
 	  {
 		// set the store to the MongoStore we required
 		store: new MongoStore({
-		  url: "mongodb://localhost:27017/Insta"
+		  url: process.env.MONGODB_URI
 		}),
 		// our secret is a signature in our sessions to verify that it is valid
 		secret: "Make custom password here",
