@@ -89,7 +89,6 @@
   
 
 <!-- SECTION:  MAINPAGE CONTENT -->
-
 <% if (user) { %>
   <h2 class="mainPageHeader"> Welcome Back!</h2>  
   <div class="mainPageContent">
@@ -97,12 +96,14 @@
         <% card.forEach(post => { %>
             <div class="ui card wide">
                 <div class="content">
-                  <%= post.user.userName %> <br>
+                  <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
+                  <% randomNum = randomBoi.toString(); %>
+                  <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00"> <%= post.user.userName %>
+                 <!--Initialize date for formatting-->
                   <% date = new Date(post.createdAt) %>
-                  <div class="offset right floated meta"><%= date.toDateString() %></div>
+                  <div class="right floated meta"><%= date.toDateString() %></div>
                 </div>
                 <div class="image">
-                  <% console.log(post.image.image) %>
                   <img src="/<%=post.image.image %>" loading="lazy">
                 </div>
                 <div class="description">
@@ -176,8 +177,6 @@
     </div>
 
     <% } %>
-
-
 
 
 

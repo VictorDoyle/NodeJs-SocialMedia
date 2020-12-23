@@ -74,8 +74,7 @@
       
     <div class="ui card wide">
       <div class="content">
-        <%= post.user.userName %> <br>
-        <% date = new Date(post.createdAt) %>
+        <img class="ui avatar image" src="<%= post.user.picture %>"> <%= post.user.userName %> <br>
         <div class="offset right floated meta"><%= date.toDateString() %></div>
       </div>
       <div class="image">

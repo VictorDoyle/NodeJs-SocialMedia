@@ -29,7 +29,7 @@ $("#followButton").on("click", function followCountToggle(){
 
 // SECTION: USER POSTS COMMENTS/LIKES
 
-
+                 
 
 
 /* ========================== NOTIFICATIONS ========================== */
