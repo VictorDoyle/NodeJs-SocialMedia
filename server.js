@@ -73,6 +73,7 @@ const authRequired = function(req,res,next){
 
 //Controllers
 app.use("/",  controllers.auth);
+app.use("/login", authRequired,  controllers.auth);
 app.use("/users", authRequired, controllers.users);
 // app.use("/comments", authRequired, controller.comments); //Uncomment after testing
 app.use("/posts",  controllers.posts);/*

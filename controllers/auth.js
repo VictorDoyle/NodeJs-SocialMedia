@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const db = require("../models");
 
+const upload = require("multer")({dest: "./upload/"});
+
 /* ====== Presentational Routes ====== */
 
 // VERIFY - GET req - /login -- returns new form for user to login 
@@ -32,7 +34,7 @@ router.post("/register", async function(request, response){
     } catch (error) {
         return response.send(error);
     }
-});
+}); 
 
 
 /* login get req */

@@ -120,7 +120,7 @@
       <i class="users icon"></i>
       <div class="content">
         <div class="header">Following</div>
-        30000
+        0
       </div>
     </div>
     <div class="item">
@@ -130,7 +130,9 @@
           Followers
         </div>
         <div> 
-          <span id="followerCount"> 0 </span>
+          <span id="followerCount"> 
+            0
+           </span>
         </div>
       </div>
     </div>
@@ -163,16 +165,20 @@
   
 
   <% profile.posts.forEach(post => { %>
+    <a href="/"> </a>
   <div class="column">
     <div class="ui fluid card">
       <div class="image">
         <img class="ui medium rounded image" src="/<%=post.image.image %>" >
-      </div>
+      </div>  
       <div class="extra content">
         
         <span class="left floated like" id="likeButton">
           <i class="like icon"></i>
-          <%= post.likes %>
+          <script>
+            let likes =  post.likes;
+            </script>
+            <%= post.likes %>
         </span>
 
         <span class="right floated star">
@@ -183,7 +189,8 @@
     </div>
   </div>
   <% }) %>
-  <!-- FIXME: placeholder for visuals -->
+
+  
 </div>
 </div>
 

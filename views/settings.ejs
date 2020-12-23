@@ -103,12 +103,14 @@
             }  
         </script>
       </a>
-      <a class="item"> <!-- TODO: Build out routes -->
+      <a class="item"> 
         Return to Account
       </a>
+      <a class="item"></a>
       <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
-      <input class="item" type="submit" value="Delete Your Account" /> <!-- FIXME: after delete redirect to homepage ++ delete storedCookie-->
-    </form> <!-- FIXME: Need a window pop up to guarantee the user is SURE to delete account -->
+      <input class="item" type="submit" value="Delete Your Account" />
+    </form>
+  </a> 
   </div>
 </div>
   
