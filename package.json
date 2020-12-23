@@ -14,8 +14,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "preinstall": "npx npm-force-resolutions",
-    "server": "nodemon server.js"
+    "preinstall": "npx npm-force-resolutions"
   },
   "resolutions": {
     "graceful-fs": "^4.2.4"
