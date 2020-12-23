@@ -170,15 +170,23 @@
       <div class="image">
         <img class="ui medium rounded image" src="/<%=post.image.image %>" >
       </div>  
-      <div class="extra content">
-        
+      <div class="extra content"> 
         <span class="left floated like" id="likeButton">
-          <i class="like icon"></i>
+          <form action="/posts" method="POST" >
+          <i id="heartIcon"class="like icon"></i>
+          <span id="likeCounter">
           <script>
+<<<<<<< HEAD
             let likes =  post.likes;
+=======
+            let likes = <%= post.likes %>
+>>>>>>> d4f4ce9cc0618c8eb7fb748f68aea4c918ae701e
             </script>
             <%= post.likes %>
+          </span>
+        </form>
         </span>
+       
 
         <span class="right floated star">
           Save 
@@ -189,7 +197,7 @@
   </div>
   <% }) %>
 
-  
+
 </div>
 </div>
 

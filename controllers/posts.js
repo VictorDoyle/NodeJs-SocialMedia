@@ -107,4 +107,25 @@ router.delete("/:id", function(request,response){
         }
     });
 });
+
+/* Updating Post Likes Route */
+/* router.put("/:id", function(request,response){
+    db.Post.findByIdAndUpdate(
+        request.params.id,
+        {
+            $set: {
+                ...request.body.likes
+            }
+        },
+        { new: true},
+        function(error){
+            if(error) {
+                return response.send(error);
+            } else {
+                return response.redirect("/");
+            }
+        }
+    );
+});
+ */
 module.exports = router;

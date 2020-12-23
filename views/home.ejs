@@ -96,10 +96,17 @@
         <% card.forEach(post => { %>
             <div class="ui card wide">
                 <div class="content">
+<<<<<<< HEAD
                   <% randomBoi = Math.floor(Math.random() * Math.floor(10)); %>
                   <% randomNum = randomBoi.toString(); %>
                   <img class="ui avatar image" src= "https://picsum.photos/<%= randomNum %>00/<%= randomNum %>00">
                  <!--Initialize date for formatting-->
+=======
+                  <div class=" ui avatar image"> 
+                  </div>
+                  <div class="right floated meta"></div>
+                  <a href="/users/<%= post.user.id %>"> <%= post.user.userName %> </a>
+>>>>>>> d4f4ce9cc0618c8eb7fb748f68aea4c918ae701e
                   <% date = new Date(post.createdAt) %>
                   <div class="right floated meta"><%= date.toDateString() %></div>
                   <div class="right floated meta"></div>
