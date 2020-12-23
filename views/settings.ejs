@@ -15,7 +15,9 @@
 
     <!-- IF USER IS LOGGED IN SHOW THIS NAVBAR VERSION -->
   <div class="ui secondary pointing menu">
-    <h1>Social Media App</h1>
+    <a href="/"class="item"> 
+      <h1>Social Media App</h1>
+      <a>
     <a class="item active" href="/">
       <i class="home icon"></i>
       Home
@@ -102,7 +104,7 @@
             }  
         </script>
       </a>
-      <a class="item"> 
+      <a class="item" href="/users/<%= user._id %>"> 
         Return to Account
       </a>
       <a class="item"></a>
