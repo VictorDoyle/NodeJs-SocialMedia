@@ -107,7 +107,7 @@
           <img class="ui avatar image" src="https://picsum.photos/id/1005/300/300">
           <div class="content">
             <a href="/users/<%= user._id %>"> <%= user.userName %></a>
-            <div class="description"> last posted <%= user.posts %></div>
+            <div class="description"> last posted <%= user.posts.date %></div>
           </div>
         </div>
       </div>
@@ -115,12 +115,6 @@
       
     </div>
   </div>
-
-
-
-
-
-
 
 
 
